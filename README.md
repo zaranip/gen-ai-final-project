@@ -82,19 +82,46 @@ memory_store/              persistent memory JSON (auto-created)
 
 ---
 
-## Running the Full Benchmark
+## Running Local Verification
 
-```python
-from benchmark.evaluator import run_benchmark
+Run the unit tests before changing agent logic or experiment runners:
 
-# Compare all three modes
-no_loop_results  = run_benchmark(mode="no_loop")
-loop_1_results   = run_benchmark(mode="loop_1")
-loop_n_results   = run_benchmark(mode="loop_n", max_iterations=4)
+```bash
+python -m unittest discover -v
+python -m compileall src benchmark scripts tests
 ```
 
-Each entry in the returned list includes scores (0–10 on factual accuracy,
-reasoning quality, completeness), cost, and iteration count.
+These tests do not call Anthropic, FRED, or Tavily.
+
+---
+
+## Running the Full Benchmark
+
+Use the reproducible runner so raw outputs and summaries are saved together:
+
+```bash
+python -m scripts.run_benchmark \
+  --modes no_loop loop_1 loop_n \
+  --max-iterations 4
+```
+
+For a cheaper smoke run, run one question first:
+
+```bash
+python -m scripts.run_benchmark \
+  --modes no_loop loop_1 \
+  --questions Q1 \
+  --max-iterations 2
+```
+
+Each run writes a timestamped folder under `outputs/benchmark_runs/`:
+
+| File | Purpose |
+|---|---|
+| `run_config.json` | Modes, question IDs, run ID, and iteration cap |
+| `raw_results.json` | Full final answers, critiques, scores, costs, and timing |
+| `summary.csv` | Flat table for charts and final report tables |
+| `summary.md` | Human-readable digest for the audience-facing writeup |
 
 ---
 
@@ -131,6 +158,9 @@ Per the assignment rubric, each team member should be ready to explain:
 - Why this data, this method, this evaluation design
 - At least one case where self-critique made the answer *worse* (required by rubric)
 - What an AI tool would not have produced on its own
+
+Current ownership plan is tracked in `docs/team_execution_plan.md`.
+The final-report handoff structure is in `reports/final_report_handoff.md`.
 
 ---
 

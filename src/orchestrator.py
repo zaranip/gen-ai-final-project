@@ -16,7 +16,7 @@ Usage:
 import json
 import logging
 import time
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Literal, Optional
 
@@ -50,11 +50,13 @@ def run(
     max_iterations: int = 5,
     researcher_model: str = "claude-opus-4-7",
     critic_model: str = "claude-sonnet-4-6",
+    memory_dir: Optional[Path] = None,
 ) -> dict:
     """Run the research loop. mode = "no_loop" | "loop_1" | "loop_n"."""
     t0 = time.time()
     use_memory = (mode == "loop_n")
-    memory = MemoryStore() if use_memory else None
+    memory_path = Path(memory_dir) if memory_dir is not None else None
+    memory = MemoryStore(memory_path) if use_memory else None
     researcher = ResearchAgent(model=researcher_model)
     critic = CriticAgent(model=critic_model)
 
@@ -63,7 +65,7 @@ def run(
         "mode": mode,
         "researcher_model": researcher_model,
         "critic_model": critic_model,
-        "timestamp": datetime.utcnow().isoformat(),
+        "timestamp": datetime.now(timezone.utc).isoformat(),
         "iterations": [],
     }
 
@@ -79,8 +81,44 @@ def run(
         run_log["iterations"].append({"researcher": result, "critic": None})
         final_answer = result["answer"]
 
+    elif mode == "loop_1":
+        log.info("[loop_1] Initial investigation: %s", question[:80])
+        result = researcher.investigate(question)
+        _add_tokens(total_tokens, result["token_usage"])
+
+        critique = critic.critique(question, result)
+        _add_tokens(total_tokens, critique["token_usage"])
+
+        verdict = critique["critique"].get("verdict", "accept")
+        log.info("  Critic verdict: %s", verdict)
+
+        run_log["iterations"].append({
+            "iteration": 1,
+            "researcher": result,
+            "critic": critique,
+            "verdict": verdict,
+        })
+        final_answer = result["answer"]
+        final_critique = critique["critique"]
+
+        if verdict != "accept":
+            critic_feedback = "\n".join(critique["critique"].get("weaknesses", []))
+            log.info("[loop_1] Revision pass")
+            revised = researcher.investigate(
+                question,
+                critic_feedback=critic_feedback,
+            )
+            _add_tokens(total_tokens, revised["token_usage"])
+            run_log["iterations"].append({
+                "iteration": 2,
+                "researcher": revised,
+                "critic": None,
+                "verdict": "revision_only",
+            })
+            final_answer = revised["answer"]
+
     else:
-        max_iters = 2 if mode == "loop_1" else max_iterations
+        max_iters = max_iterations
         critic_feedback: Optional[str] = None
 
         for i in range(max_iters):
@@ -118,9 +156,6 @@ def run(
                 break
 
             critic_feedback = "\n".join(c["critique"].get("weaknesses", []))
-
-            if mode == "loop_1":
-                break
 
     elapsed = round(time.time() - t0, 1)
     _save_log(run_log)
@@ -164,7 +199,7 @@ def _estimate_cost(
 
 
 def _save_log(run_log: dict) -> None:
-    fname = LOG_DIR / f"run_{datetime.utcnow().strftime('%Y%m%d_%H%M%S')}.json"
+    fname = LOG_DIR / f"run_{datetime.now(timezone.utc).strftime('%Y%m%d_%H%M%S')}.json"
     try:
         with open(fname, "w") as f:
             json.dump(run_log, f, indent=2, default=str)
