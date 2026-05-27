@@ -1,0 +1,13 @@
+title: Auto-Research Loop Chartbook
+description: Self-critique and persistent memory on a six-question macro benchmark.
+theme: jekyll-theme-cayman
+show_downloads: false
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+
+include:
+  - assets
