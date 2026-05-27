@@ -27,3 +27,6 @@ memory_store/*.json
 
 outputs/*
 !outputs/.gitkeep
+!outputs/benchmark_runs/
+outputs/benchmark_runs/*
+!outputs/benchmark_runs/consolidated/

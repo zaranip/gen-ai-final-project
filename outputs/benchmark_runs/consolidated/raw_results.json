@@ -1,0 +1,544 @@
+[
+  {
+    "question_id": "Q1",
+    "question": "Did the Federal Reserve achieve a 'soft landing' in its 2022\u20132023 rate hike cycle \u2014 that is, did core PCE inflation return meaningfully toward 2% without the U.S. economy entering a recession?",
+    "mode": "no_loop",
+    "difficulty": "medium",
+    "tags": [
+      "monetary_policy",
+      "inflation",
+      "recession"
+    ],
+    "scores": {
+      "factual_accuracy": 8,
+      "reasoning_quality": 9,
+      "completeness": 7,
+      "total": 8.0,
+      "explanation": "The agent answer is largely accurate on core numbers (5.6\u20135.8% peak, 2.8\u20133.0% by late 2024, 525bps tightening, no recession) and correctly interprets the soft landing as achieved on both recession avoidance and meaningful disinflation grounds. Minor issues: the reference states core PCE peaked at ~5.6% in Feb 2023, while the agent cites both Feb 2022 (~5.6%) and Sep 2022 (~5.83%), which adds precision but slightly complicates the narrative. The agent also extends the analysis through Sep 2025 (beyond reference scope), noting stalled progress at 2.7%, which is insightful but introduces forward-looking claims outside the 2022\u20132023 cycle definition. The reasoning is sophisticated and well-evidenced, but the answer's nuanced claim that the landing is \"incomplete\" or \"stalled\" somewhat hedges the conventional soft-landing judgment that the reference endorses more directly."
+    },
+    "final_answer": {
+      "claim": "The Fed largely achieved a soft landing in narrative terms \u2014 no recession occurred and core PCE inflation fell substantially from its ~5.6\u20135.8% peak in 2022 \u2014 but the \"landing\" is incomplete: core PCE has stalled near 2.7\u20133.0% rather than meaningfully returning to the 2% target.",
+      "confidence": "high",
+      "evidence_summary": "Core PCE (PCEPILFE, YoY): peaked at ~5.6% in Feb 2022 and ~5.83% in Sep 2022 (115.788/109.409); fell to 3.11% by Dec 2023 (120.592/116.952), 2.99% by Dec 2024 (124.196/120.592), and was ~2.8% YoY through mid-2024. Per Dallas Fed (Sept 2025), PCE inflation was still 2.7% over the 12 months ending Aug 2025 \u2014 above target since early 2021. Fed funds rate (FEDFUNDS): rose from 0.08% (Feb 2022) to a peak of 5.33% (held Aug 2023 \u2013 Aug 2024), then began cutting in Sep 2024 (5.13%) down to 4.33% by Jan 2025. Unemployment (UNRATE): rose only modestly from 3.5% (mid-2022) to 4.1\u20134.2% in mid-2024 \u2014 well below historical post-tightening recession levels. Real GDP (GDPC1): grew continuously from $21.93T (Q1 2022) to $23.59T (Q4 2024), with no two consecutive quarters of decline after H1 2022. NBER recession indicator (USREC): zero throughout 2022\u20132024 \u2014 no recession declared. Payrolls (PAYEMS): added jobs every month from Jan 2022 through end-2024 (150.0M \u2192 158.3M).",
+      "rationale": "A \"soft landing\" requires two conditions: (1) inflation returning meaningfully toward 2%, and (2) avoiding a recession. On condition (2), the evidence is unambiguous \u2014 NBER has not declared a recession, real GDP grew every quarter from Q3 2022 onward, payrolls expanded continuously by ~8 million jobs, and unemployment rose only modestly from 3.5% to ~4.1\u20134.2%. This is historically remarkable given the speed of tightening (525bps in ~17 months). On condition (1), core PCE inflation fell from its peak of ~5.8% in late 2022 to roughly 2.8\u20133.0% by late 2024 \u2014 a substantial decline of ~3 percentage points, clearly \"meaningful\" progress. However, the disinflation has stalled: the Dallas Fed in Sept 2025 noted headline PCE was still 2.7% YoY and core remained sticky, primarily due to housing services and non-housing core services. So the Fed achieved the recession-avoidance half cleanly, and most of the inflation half \u2014 but the \"last mile\" to 2% has not been completed. Whether this qualifies as a \"full\" soft landing depends on whether one requires hitting the 2% target precisely or just substantial progress. By most analyst and Fed communications standards (e.g., Powell's 2024 remarks), this is widely characterized as a soft landing in progress, though the AEI and others argue inflation may be getting \"stuck\" above target.",
+      "open_questions": [
+        "Whether core PCE will eventually converge to 2% or remain stuck at 2.5\u20133% creates definitional ambiguity about whether the landing is 'complete'",
+        "Lagged effects of monetary tightening \u2014 some analysts worry recession risk was deferred rather than avoided, though by late 2024 this view looked weaker",
+        "The role of fiscal stimulus, immigration-driven labor supply, and productivity gains in enabling disinflation without job losses \u2014 these may be one-off factors not reflecting Fed skill alone",
+        "Data beyond ~2024 in the FRED responses appears to contain projections/forecasts rather than realized values, so claims about 2025\u20132026 should be treated cautiously"
+      ]
+    },
+    "iterations": 1,
+    "cost_estimate_usd": "",
+    "elapsed_seconds": ""
+  },
+  {
+    "question_id": "Q2",
+    "question": "Was the U.S. yield curve inversion of 2022\u20132023 (10Y minus 2Y spread) more persistent than the 2006\u20132007 inversion that preceded the 2008 financial crisis?",
+    "mode": "no_loop",
+    "difficulty": "easy",
+    "tags": [
+      "yield_curve",
+      "recession_prediction",
+      "monetary_policy"
+    ],
+    "scores": {
+      "factual_accuracy": 6,
+      "reasoning_quality": 8,
+      "completeness": 7,
+      "total": 7.0,
+      "explanation": "The agent correctly identifies that the 2022\u20132024 inversion was more persistent and deeper than 2006\u20132007, with accurate duration (~26 vs ~12 months) and correct direction on depth. However, a critical factual error undermines credibility: the agent claims the 2006\u20132007 trough was \u201319 bps when the reference indicates \u201350 to \u201370 bps, a 3\u20134x underestimate. The reasoning is sound and well-detailed, but this magnitude error on the 2006\u20132007 comparison weakens factual accuracy. The agent also provides valuable additional detail (the March\u2013June 2006 interruption, Sept 2024 confirmation) and correctly notes the 2023 lack of recession, making the answer substantively richer than the reference despite the depth discrepancy."
+    },
+    "final_answer": {
+      "claim": "Yes, the 2022\u20132024 U.S. 10Y-2Y yield curve inversion was substantially more persistent than the 2006\u20132007 inversion \u2014 roughly twice as long in continuous duration (~26 months vs. ~12 months) and approximately 5-6x deeper at its trough (-1.08 percentage points vs. -0.19 percentage points).",
+      "confidence": "high",
+      "evidence_summary": "From FRED series T10Y2Y (daily data):\n\n**2006\u20132007 inversion:**\n- Brief initial dips: -0.01 on Dec 27, 2005; -0.02 on Dec 30, 2005\n- First sustained inversion began Jan 31, 2006 (-0.01), with the spread inverted through early March 2006 (deepest -0.16 on Feb 23-24, 2006)\n- Spread went positive again March 8\u2013June 6, 2006 (a multi-month interruption)\n- Re-inverted June 7, 2006 (-0.01) and remained continuously inverted through May 31, 2007 (-0.02), with deepest reading of -0.19 on Nov 15-16, 2006\n- Continuous inversion stretch: ~June 2006 to early June 2007 \u2248 12 months\n- Maximum inversion depth: -0.19 percentage points\n\n**2022\u20132024 inversion:**\n- Brief flicker: -0.05 on April 1, 2022\n- Sustained inversion began July 5\u20136, 2022 (0.00, then -0.04)\n- Remained continuously inverted (no positive days) until late August 2024 \u2014 first 0.00 reading on Aug 27, 2024 and Aug 28 hit +0.01; spread confirmed positive starting Sept 4, 2024 (0.01) and stayed positive thereafter, reaching +0.33 by Dec 31, 2024\n- Continuous inversion stretch: July 2022 to late August 2024 \u2248 ~26 months (~780 calendar days)\n- Maximum inversion depth: -1.08 percentage points on July 3, 2023 (with several other days near -1.00 to -1.07 in March and June-July 2023)",
+      "rationale": "Persistence can be measured two ways: continuous duration of inversion and maximum depth. On both measures, the 2022\u20132024 episode dominates the 2006\u20132007 episode by a wide margin. The 2006\u20132007 inversion was not even continuous \u2014 there was a clear three-month gap (March-June 2006) when the spread returned to positive territory before re-inverting. Even taking the longest continuous stretch (June 2006 to June 2007, roughly 12 months), it is less than half the duration of the 2022\u20132024 continuous inversion (~26 months from July 2022 to late August 2024). Depth is also strikingly different: the 2006\u20132007 trough of -19 basis points was a shallow inversion, while the 2022\u20132023 trough exceeded -100 basis points, making it among the deepest 10Y-2Y inversions in the post-WWII record. The data therefore unambiguously supports the claim that the 2022\u20132024 inversion was more persistent (and deeper) than the pre-GFC inversion.",
+      "open_questions": [
+        "Whether different measures of the yield curve (e.g., 10Y-3M spread, which the NY Fed favors for recession forecasting) would tell the same story \u2014 the 10Y-3M had a different timing and shape in both episodes",
+        "Whether the unusually deep and long 2022-2024 inversion reflects different underlying dynamics (aggressive Fed tightening from zero, post-pandemic inflation shock) that may limit its comparability as a recession signal versus 2006-2007",
+        "The 2006-2007 inversion was followed by the GFC roughly 18-24 months after onset; the 2022-2024 inversion has not (as of end-2024) been followed by an NBER-dated recession, raising questions about the predictive content of persistence per se"
+      ]
+    },
+    "iterations": 1,
+    "cost_estimate_usd": "",
+    "elapsed_seconds": ""
+  },
+  {
+    "question_id": "Q3",
+    "question": "Did real average hourly earnings (inflation-adjusted) grow or decline during the 2021\u20132022 U.S. inflation surge, and by approximately how much?",
+    "mode": "no_loop",
+    "difficulty": "easy",
+    "tags": [
+      "wages",
+      "inflation",
+      "labor_market"
+    ],
+    "scores": {
+      "factual_accuracy": 9,
+      "reasoning_quality": 9,
+      "completeness": 9,
+      "total": 9.0,
+      "explanation": "The agent's answer is factually robust, citing specific FRED data points (nominal AHE, CPI-U levels), computed real AHE indices, and corroborating BLS official releases with precise year-over-year declines (\u20132.6% Apr\u2013Apr, \u20131.7% Dec\u2013Dec, \u20134.22% peak-to-trough). The magnitude (3\u20134% peak decline) aligns tightly with the reference answer. The reasoning correctly attributes the decline to nominal wage growth (~5%) being outpaced by CPI inflation (~9.1% peak), matching the reference's arithmetic logic. Minor deductions apply only because the response trails off mid-sentence at the end ('Note that the picture depends on which deflator (') and could have briefly noted the 2023 recovery pattern mentioned in the reference, though the core 2021\u20132022 analysis is nearly complete and accurate."
+    },
+    "final_answer": {
+      "claim": "Real (inflation-adjusted) average hourly earnings DECLINED during the 2021\u20132022 U.S. inflation surge. Real AHE fell roughly 3\u20134% from early 2021 to its mid-2022 trough, with the official BLS year-over-year comparison showing a 2.6% decline from April 2021 to April 2022 and a 1.7% decline from December 2021 to December 2022.",
+      "confidence": "high",
+      "evidence_summary": "FRED data, computing Real AHE = (Nominal AHE / CPI-U) \u00d7 100: Nominal Average Hourly Earnings (CES0500000003) rose from $29.93 (Jan 2021) to $31.39 (Dec 2021, +4.9%) to $32.94 (Dec 2022, +10.1% from Jan 2021). CPIAUCSL rose from 262.687 (Jan 2021) to 280.845 (Dec 2021, +6.9%) to 298.832 (Dec 2022, +13.8% from Jan 2021). CPI peaked YoY at 9.1% in June 2022 (294.957). Computed real AHE (index): Jan 2021 = 11.394; Dec 2021 = 11.177 (-1.90%); Jun 2022 (trough) = 10.913 (-4.22% from Jan 2021); Dec 2022 = 11.024 (-3.25% from Jan 2021, +1.02% from trough). BLS official 'Real Earnings' releases corroborate: -2.6% Apr 2021\u2192Apr 2022; -1.7% Dec 2021\u2192Dec 2022; -2.2% Jun 2020\u2192Jun 2021. Real median weekly earnings (LES1252881600Q, 1982-84 $) also fell from $373 in Q1 2021 to a trough of $359 in Q2 2022 (-3.75%), recovering to $362 by Q4 2022.",
+      "rationale": "During 2021-2022, nominal wage growth was strong by historical standards (~5% annualized), but CPI inflation ran even hotter (peaking at 9.1% YoY in June 2022). When you deflate nominal AHE by CPI, real purchasing power per hour fell. The decline was steepest around mid-2022 when inflation peaked; by late 2022 nominal wage growth began catching up as inflation eased, so real wages started recovering off the trough but were still below their early-2021 level at year-end 2022. My FRED-based calculations (-1.90% Jan-Dec 2021, -4.22% peak-to-trough through Jun 2022, -3.25% through Dec 2022) align closely with BLS's official 'Real Earnings' news releases (-2.6% Apr/Apr, -1.7% Dec/Dec), giving high confidence in the direction and rough magnitude. Note that the picture depends on which deflator (CPI vs PCE) and which earnings measure (AHE vs ECI vs median weekly) is used, but all CPI-deflated wage measures show declines during this period.",
+      "open_questions": [
+        "Using PCE deflator instead of CPI would show a milder decline since PCE inflation peaked lower (~7%) than CPI.",
+        "The Employment Cost Index, which controls for composition/industry shifts, may show a somewhat different real wage trajectory than AHE.",
+        "Lower-wage workers actually saw stronger nominal wage gains during this period and may have experienced smaller real wage declines (or even gains) than the aggregate AHE figure suggests."
+      ]
+    },
+    "iterations": 1,
+    "cost_estimate_usd": "",
+    "elapsed_seconds": ""
+  },
+  {
+    "question_id": "Q4",
+    "question": "Which sector drove U.S. employment recovery more strongly in the 12 months following the COVID-19 trough (April 2020): leisure & hospitality or professional & business services?",
+    "mode": "no_loop",
+    "difficulty": "medium",
+    "tags": [
+      "labor_market",
+      "covid",
+      "sector_analysis"
+    ],
+    "scores": {
+      "factual_accuracy": 7,
+      "reasoning_quality": 8,
+      "completeness": 6,
+      "total": 7.0,
+      "explanation": "The agent correctly identifies leisure & hospitality as driving stronger absolute recovery (4.85M vs 1.88M jobs), with accurate percentage gains (55.6% vs 9.8%). However, the absolute job recovery figures are slightly understated compared to the reference (5.5M vs agent's 4.85M for L&H; 2.5M vs agent's 1.88M for PBS), and the agent fails to acknowledge the important nuance that professional & business services actually achieved a higher proportional recovery of its losses (~74% vs ~62%), which meaningfully qualifies the \"far more strongly\" claim. The reasoning is sound but incomplete."
+    },
+    "final_answer": {
+      "claim": "Leisure & hospitality drove the U.S. employment recovery far more strongly than professional & business services in the 12 months following the April 2020 COVID trough, adding roughly 4.85 million jobs (+55.6%) versus 1.88 million (+9.8%) for PBS. However, PBS was much closer to fully restoring its pre-pandemic peak by April 2021.",
+      "confidence": "high",
+      "evidence_summary": "Seasonally adjusted FRED data (USLAH, USPBS), thousands of persons:\n\nLeisure & Hospitality (USLAH):\n- Feb 2020 (pre-COVID peak): 16,889\n- Apr 2020 (trough): 8,719 \u2014 a loss of ~8,170 jobs (-48.4%)\n- Apr 2021: 13,568\n- 12-month recovery: +4,849K jobs, +55.6%\n- Still 3,321K (19.7%) below pre-COVID peak\n\nProfessional & Business Services (USPBS):\n- Feb 2020 (pre-COVID peak): 21,483\n- Apr 2020 (trough): 19,223 \u2014 a loss of ~2,260 jobs (-10.5%)\n- Apr 2021: 21,103\n- 12-month recovery: +1,880K jobs, +9.8%\n- Still 380K (1.8%) below pre-COVID peak\n\nRatio: L&H added ~2.58x more jobs than PBS during the 12-month window.",
+      "rationale": "The question is about which sector \"drove the recovery more strongly\" in the 12 months following the April 2020 trough. By the most natural metrics \u2014 absolute jobs added and percentage growth from the trough \u2014 leisure & hospitality dominated. It added 4.85 million jobs versus 1.88 million for professional & business services, a 2.6-to-1 ratio. Its 55.6% growth rate from the trough also dwarfs PBS's 9.8% gain.\n\nThe intuitive reason: L&H bore the brunt of pandemic shutdowns (losing nearly half its workforce), so the mechanical bounce-back as restaurants, hotels, and entertainment venues reopened was massive. PBS \u2014 much of which could work remotely \u2014 declined far less (-10.5%) and therefore had less ground to recover.\n\nA nuance worth flagging: if \"drove the recovery\" is interpreted as \"got back to normal first,\" PBS comes out ahead \u2014 it was 98.2% of the way back to its pre-COVID peak by April 2021, while L&H was only 80.3% recovered. But in terms of contribution to the recovery (jobs added during the window), L&H is unambiguously the bigger driver.",
+      "open_questions": [
+        "Whether the questioner intends 'drove the recovery' as absolute job contribution (L&H wins clearly) versus completeness of return to pre-pandemic levels (PBS wins).",
+        "Sectoral measurement caveats: PBS includes temporary help services, which can be volatile and was a leading indicator of broader hiring trends not fully captured in headline numbers."
+      ]
+    },
+    "iterations": 1,
+    "cost_estimate_usd": "",
+    "elapsed_seconds": ""
+  },
+  {
+    "question_id": "Q5",
+    "question": "Was M2 money supply growth a leading indicator of the 2021\u20132022 inflation surge? Specifically, did the M2 acceleration in 2020 precede the CPI acceleration by a meaningful and historically consistent lag?",
+    "mode": "no_loop",
+    "difficulty": "hard",
+    "tags": [
+      "monetary_policy",
+      "inflation",
+      "money_supply",
+      "leading_indicator"
+    ],
+    "scores": {
+      "factual_accuracy": 9,
+      "reasoning_quality": 9,
+      "completeness": 8,
+      "total": 8.67,
+      "explanation": "The agent's answer is factually sound on core claims: M2 peak at ~26.9% YoY in Feb 2021, CPI peak at ~9.0% in Jun 2022, yielding a ~16-month lag that matches the reference's 15-month estimate and monetarist 12\u201324 month framework. Specific FRED numbers are accurate (e.g., M2 Feb 2020 +6.8%, Feb 2021 peak +26.8%, CPI Jun 2022 +9.0%). The agent goes further by introducing the 2008\u20132014 counterexample and velocity mechanism, enriching the analysis beyond the reference answer. Minor deductions apply because the 1970s evidence is sketched lightly (exact M2 timing and CPI lag dates could be more precise) and the answer cuts off mid-sentence at the end, suggesting incomplete editing. The two-part framing (part a vs. part b) is pedagogically strong but introduces nuance (\"not historically consistent\") that the reference answer does not address\u2014this is valuable but slightly beyond the reference scope."
+    },
+    "final_answer": {
+      "claim": "In the 2020\u20132022 episode, M2 acceleration did clearly precede the CPI surge with a lag of roughly 12\u201316 months, matching the classic monetarist \"long and variable\" timing. However, the lag relationship is NOT historically consistent: the 1970s episode fits the pattern, but the 2008\u20132014 post-GFC period is a major counterexample where similar (though smaller) M2 growth did not produce CPI acceleration. So M2 was a useful leading indicator in 2020\u201322 but is not a reliable one across regimes.",
+      "confidence": "high",
+      "evidence_summary": "FRED data, M2SL and CPIAUCSL (seasonally adjusted, monthly).\n\n(1) 2020\u20132022 episode \u2014 M2 led CPI by 12\u201316 months:\n- M2 YoY growth: Feb 2020 +6.8% \u2192 Apr 2020 +16.9% \u2192 Jun 2020 +22.8% \u2192 Dec 2020 +24.6% \u2192 Feb 2021 PEAK at +26.8% (15493\u219219642) \u2192 Dec 2021 +12.5% \u2192 Dec 2022 \u20131.0%.\n- CPI YoY: Feb 2020 +2.3% \u2192 Apr 2020 +0.3% (COVID deflation shock) \u2192 Dec 2020 +1.3% \u2192 Mar 2021 +2.7% (acceleration begins) \u2192 Jun 2021 +5.3% \u2192 Dec 2021 +7.2% \u2192 Jun 2022 PEAK at +9.0% (270.654\u2192294.957) \u2192 Dec 2022 +6.4%.\n- Lag from M2 peak (Feb 2021) to CPI peak (Jun 2022): ~16 months. Lag from M2 acceleration start (~Apr 2020) to CPI acceleration start (~Mar 2021): ~11\u201312 months.\n\n(2) 1970s episode \u2014 supports the pattern:\n- M2 YoY ~+13% in 1971\u201372 (Dec 1971 710.3 vs Dec 1970 626.5 = +13.4%; Dec 1972 802.3 = +13.0%).\n- CPI YoY surged from +3.4% (Dec 1972) to +8.7% (Dec 1973) and +12.3% (Dec 1974). Lag ~12\u201318 months.\n\n(3) 2008\u20132014 \u2014 KEY COUNTEREXAMPLE:\n- M2 YoY +9.6% (Dec 2008 vs Dec 2007: 8204.7/7483.9), continued elevated growth in 2009\u20132012 (Dec 2011 vs Dec 2010 = +9.8%).\n- Yet CPI YoY stayed 1\u20132% through most of 2010\u20132015 (CPI Dec 2010 220.5, Dec 2014 236.3 = only ~1.7%/yr). No inflation surge despite multi-year elevated M2 growth.\n\n(4) Research: Hanke & Greenwood (Johns Hopkins, May 2021 paper \"Will the Pandemic Bulge in Money Cause High Inflation?\") used the Feb 2020\u2013Feb 2021 M2 growth of ~26.9% to forecast a CPI surge with a 12\u201324 month lag \u2014 a forecast that proved correct. St. Louis Fed (\"The Rise and Fall of M2,\" May 2023) and Commonfund both note the 27% YoY M2 growth was the largest since 1959.\n\n(5) Velocity matters: The post-2008 counterexample is typically explained by collapsing M2 velocity (banks holding excess reserves, weak credit demand). In 2020\u201322 velocity was supported by fiscal transfers directly to households, raising effective spending \u2014 which is why the M2 surge translated into CPI this time but not after 2008.",
+      "rationale": "The user's question has two parts: (a) Did M2 lead CPI in 2020\u201322, and (b) was the lag \"meaningful and historically consistent\"?\n\nPart (a) is unambiguous from the FRED data. M2 YoY growth accelerated sharply starting in April 2020 (driven by the Fed's balance-sheet expansion combined with massive CARES Act fiscal transfers that landed directly in deposit accounts) and peaked at ~26.9% YoY in February 2021. CPI inflation only began accelerating in March 2021 and peaked at ~9.0% YoY in June 2022. The 12\u201316 month lag is well-defined, \"meaningful,\" and matches Friedman's classic \"long and variable lags\" framework. The Hanke/Greenwood 2021 paper made a real-time forecast using this exact relationship and was vindicated.\n\nPart (b) \u2014 historical consistency \u2014 is where the case weakens. The 1970s clearly fits: elevated M2 growth in 1971\u201372 preceded the 1973\u201374 inflation surge by ~12\u201318 months. But the 2008\u20132014 period is a glaring counterexample where M2 grew nearly 10% YoY for multiple years yet CPI stayed at 1\u20132%. This is precisely why monetarism fell out of favor with most central banks after 2008 and why the Fed deprecated M2 as a policy target. The standard reconciliation is via velocity: in 2008\u20132014 QE largely sat as excess reserves at banks and M2 velocity collapsed, whereas in 2020 fiscal transfers put new money directly into household checking accounts that was rapidly spent.\n\nSo the honest answer: yes, M2 led CPI in 2020\u201322 with a clear, meaningful lag (~12\u201316 months) that was consistent with the 1970s \u2014 but the relationship is regime-dependent, not historically consistent across all episodes. It worked this time because the money creation was paired with channels that lifted velocity (fiscal transfers, no zero-lower-bound liquidity trap on household demand).",
+      "open_questions": [
+        "How much of the 2021\u201322 CPI surge is attributable to M2 versus simultaneous supply shocks (energy, shipping, semiconductors) and the post-pandemic demand-composition shift toward goods? A monetarist-leading-indicator story and a supply-shock story are observationally similar with a 12\u201316 month lag.",
+        "Can the M2-to-CPI lag relationship be formalized in a model that endogenizes velocity, so that 2008\u20132014 (low velocity) and 2020\u20132022 (rebounding velocity) are both predicted rather than one being an exception?",
+        "Was the M2 signal actionable in real time, or only obvious in hindsight? Hanke/Greenwood made the call publicly in early 2021, but the Fed and most consensus forecasters did not \u2014 suggesting the indicator is contested even when it works.",
+        "How does the post-2022 M2 contraction (the first sustained YoY decline since the 1930s, reaching roughly \u20134% YoY in 2023) fit? CPI did decelerate, but not by as much or as fast as the symmetric monetarist prediction would imply."
+      ]
+    },
+    "iterations": 1,
+    "cost_estimate_usd": "",
+    "elapsed_seconds": ""
+  },
+  {
+    "question_id": "Q6",
+    "question": "Did the unemployment rate lead or lag real GDP growth during the 2008\u20132009 Great Recession, and by approximately how many quarters?",
+    "mode": "no_loop",
+    "difficulty": "easy",
+    "tags": [
+      "recession",
+      "unemployment",
+      "gdp",
+      "leading_lagging_indicators"
+    ],
+    "scores": {
+      "factual_accuracy": 9,
+      "reasoning_quality": 9,
+      "completeness": 8,
+      "total": 8.67,
+      "explanation": "The agent's answer is factually sound and well-supported by FRED data. The core claim that unemployment lagged GDP by ~2 quarters (GDP trough Q2 2009 \u2192 unemployment peak Q4 2009) is correct and matches the reference. The agent provides more granular detail and acknowledges the ~1-quarter lag from recession end to unemployment peak, which aligns with the reference's emphasis on the 1\u20132 quarter range. Minor deduction for factual_accuracy: the agent states unemployment was 9.3% in Dec 2010 (should verify exact figure), and the phrasing \"2008Q3-Q4\" for both GDP and UR acceleration is slightly imprecise\u2014GDP decline was steeper later. Reasoning is excellent with clear lag identification and jobless recovery context. Completeness is strong but could mention Okun's Law explicitly (referenced in the reference answer) to fully align with the macroeconomic framework."
+    },
+    "final_answer": {
+      "claim": "Unemployment lagged real GDP during the Great Recession. The unemployment rate peaked roughly 2 quarters after real GDP bottomed: real GDP troughed in 2009 Q2, while unemployment peaked at 10.0% in October 2009 (2009 Q4). At the onset of the downturn, unemployment also lagged the sharp GDP contraction by about 1\u20132 quarters.",
+      "confidence": "high",
+      "evidence_summary": "FRED data (GDPC1, UNRATE, USREC):\n\u2022 Real GDP (chained 2017 $B): peak 2007Q4 = 16,915.2; declined modestly through 2008, collapsed in 2008Q4 (-2.2% QoQ) and 2009Q1 (-1.1%); trough at 2009Q2 = 16,269.1; positive growth resumed 2009Q3 (+0.35%).\n\u2022 Unemployment rate: cycle low 4.4% (Mar/May 2007); 5.0% by Dec 2007 (NBER peak month); accelerated sharply only in mid-to-late 2008 (6.1% Aug, 7.3% Dec); 9.5% at recession end (Jun 2009); peaked at 10.0% in October 2009; still 9.3% in Dec 2010.\n\u2022 NBER recession (USREC): Jan 2008 \u2013 Jun 2009.\n\u2022 BLS Spotlight on Statistics confirms: \"In the months after the recession, the unemployment rate peaked at 10.0 percent (in October 2009).\"\n\nKey lag measurements:\n- GDP trough (2009Q2) \u2192 unemployment peak (2009Q4): ~2 quarters lag\n- NBER recession end (Jun 2009) \u2192 unemployment peak (Oct 2009): ~4 months / ~1.3 quarters\n- Sharp GDP decline began 2008Q3-Q4; sharp UR rise began roughly 2008Q3-Q4 as well, but UR continued rising for 2 more quarters after GDP turned.",
+      "rationale": "By comparing the timing of peaks/troughs in the two series, unemployment clearly behaved as a lagging indicator. Real GDP bottomed in 2009Q2 and began growing again in 2009Q3, yet the unemployment rate kept climbing for another two quarters, peaking at 10.0% in October 2009. Even after that peak, unemployment fell only very slowly (still 9.3\u20139.8% throughout 2010), while GDP grew steadily \u2014 a classic \"jobless recovery\" pattern consistent with unemployment lagging output. The lag at the onset is less clean because unemployment had been drifting up from 4.4% (mid-2007) before GDP peaked in 2007Q4, but the *acceleration* in joblessness (the sharp rise from ~6% to 10%) occurred contemporaneously with and then beyond the steepest GDP declines, again confirming a lag of roughly 2 quarters at major turning points. This matches the well-established characterization of unemployment as a lagging indicator (Conference Board, NBER conventions) and Okun's law dynamics where firms shed/add labor with a delay relative to output changes.",
+      "open_questions": [
+        "Precise lag depends on which feature is measured (level peak vs. growth-rate inflection vs. acceleration); using growth rates rather than levels could yield a slightly different lag estimate.",
+        "Whether the lag was unusually long in this cycle relative to prior recessions (the 'jobless recovery' phenomenon) \u2014 comparison to 1990-91 and 2001 recessions would be needed.",
+        "Cross-correlation analysis on quarterly GDP growth vs. change in UR would give a more rigorous statistical lag estimate than visual turning-point comparison."
+      ]
+    },
+    "iterations": 1,
+    "cost_estimate_usd": "",
+    "elapsed_seconds": ""
+  },
+  {
+    "question_id": "Q1",
+    "question": "Did the Federal Reserve achieve a 'soft landing' in its 2022\u20132023 rate hike cycle \u2014 that is, did core PCE inflation return meaningfully toward 2% without the U.S. economy entering a recession?",
+    "mode": "loop_1",
+    "difficulty": "medium",
+    "tags": [
+      "monetary_policy",
+      "inflation",
+      "recession"
+    ],
+    "scores": {
+      "factual_accuracy": 7,
+      "reasoning_quality": 8,
+      "completeness": 6,
+      "total": 7.0,
+      "explanation": "The agent correctly identifies core PCE peak (~5.6%, though dates Feb 2022 vs Feb 2023\u2014a critical error), Fed funds trajectory (525bp correct), unemployment dynamics, and crucially adds the Sahm Rule trigger and supply-side decomposition, which the reference omits. However, the agent conflates Q1 2022 data (pre-hike cycle) with 2023 outcomes and overstates disinflation stalling when reference period (through end-2023) actually showed convergence to ~2.7%. The agent's 'qualified no' contradicts the cleaner reference verdict but with more nuance; the Feb 2022 vs Feb 2023 peak date confusion is a material factual slip that undermines precision, though directional claims remain sound."
+    },
+    "final_answer": {
+      "claim": "The Fed achieved a qualified \u2014 but not unambiguous \u2014 soft landing: core PCE inflation fell from a +5.60% YoY peak (Feb 2022) to roughly +2.8\u20133.0% YoY in late 2024 / early 2025 without an NBER-dated recession, but the disinflation stalled in H2 2024, the Sahm Rule actually triggered in July\u2013August 2024, and a meaningful share of the disinflation came from supply-side normalization rather than Fed tightening. Calling it a \"clean\" soft landing overstates the evidence.",
+      "confidence": "medium",
+      "evidence_summary": "CORE PCE (PCEPILFE, YoY from index): Peak +5.60% Feb 2022 (rate of change peaked; index level rose continuously throughout \u2014 120.592 Dec-23 \u2192 124.196 Dec-24 \u2192 125.267 Mar-25). Disinflation glide path: Dec-23 +2.94%, Jun-24 +2.69%, Sep-24 +2.84%, Dec-24 +2.99%, Jan-25 +2.78% (124.587/121.217-1), Feb-25 +2.97% (125.145/121.537-1), Mar-25 +2.67% (125.267/122.009-1). The trajectory from mid-2024 onward is essentially flat in the high-2s%, not converging to 2%.\n\nGDP (GDPC1, 2017 chained $B): Q4-21 21,988.74 \u2192 Q1-22 21,932.71 (-0.25% q/q, genuine contraction) \u2192 Q2-22 21,967.05 (partial recovery, +0.16%) \u2192 Q3-22 22,125.63 \u2192 Q4-22 22,278.35. Q1 2022 *was* a negative-growth quarter; the H1 2022 \"technical recession\" debate is real, but NBER did not date one. My prior framing of a \"dip from $21,932 to $21,967\" was wrong \u2014 that was the recovery quarter.\n\nFED FUNDS (FEDFUNDS): 5.33% effective rate held Aug 2023 through Aug 2024 = 13 consecutive monthly observations, then cut to 5.13% in Sep 2024, 4.83% Oct, 4.64% Nov, 4.48% Dec, 4.33% Jan-25. Corrected from prior \"~14 months.\"\n\nUNEMPLOYMENT (UNRATE): Trough 3.4% Apr-23; rose to 4.1% Jun-24, 4.2% Jul-24, 4.2% Aug-24, 4.1% Sep\u2013Oct, 4.2% Nov-24, 4.1% Dec-24, 4.0% Jan-25, 4.2% Feb-25, 4.2% Mar-25. The 4.2% level is a plateau being repeatedly tested through early 2025, not a one-off mid-2024 peak.\n\nSAHM RULE (SAHMREALTIME): Crossed the 0.50pp recession threshold in Jul-24 (0.53) and Aug-24 (0.57), peak. Receded to 0.27 by Feb-25. The rule *did* technically trigger \u2014 Sahm herself acknowledged this publicly in summer 2024 while arguing structural factors (labor supply expansion via immigration) made it a likely false positive this cycle. No NBER recession has been dated.\n\nSUPPLY-SIDE CAUSALITY: SF Fed's Shapiro decomposition shows supply-driven PCE inflation peaked in 2022 and declined sharply as global supply chains, shipping costs, and energy prices normalized. Bernanke-Blanchard (Brookings WP91, May 2024) attribute most of the 2021-22 inflation surge to supply shortages and energy/food relative prices, with labor market tightness playing a secondary but rising role. A NY Fed Liberty Street piece (Mar 2024) explicitly notes that with supply shocks dissipated, the remaining \"final mile\" requires the demand-side channel \u2014 which is where the disinflation has stalled. This means the Fed's 525bp of tightening plausibly contributed more to the labor-market cooling (UNRATE +0.8pp) and GDP slowdown than to the bulk of the headline disinflation, which was substantially supply-driven mean-reversion.",
+      "rationale": "Restating the soft-landing scorecard with all corrections:\n\n(1) Inflation outcome: Core PCE fell from +5.60% YoY (Feb 2022) toward ~2.7\u20133.0% by 2024\u2013early 2025. That is meaningful progress, but the FRED index data show the disinflation flattened: the YoY readings of 2.69% (Jun-24), 2.84% (Sep-24), 2.99% (Dec-24), 2.78% (Jan-25), 2.97% (Feb-25), 2.67% (Mar-25) cluster in the high-2s with no clear downward momentum. Calling this \"on track to 2%\" is too benign; \"stalled modestly above 2%\" is more accurate, and the index level continues to rise.\n\n(2) Recession outcome: NBER has not dated a recession. However, three pieces of evidence complicate a clean \"no recession\" verdict: (a) Q1 2022 real GDP did contract -0.25% (and Q2 was barely positive \u2014 the two-quarter \"technical recession\" definition was nearly met in revised data); (b) the Sahm Rule indicator crossed 0.50 in Jul\u2013Aug 2024, peaking at 0.57; (c) unemployment has plateaued at 4.0\u20134.2% through early 2025 rather than retreating. Each individually is defensible to dismiss (Q1-22 contraction was inventory-driven; Sahm Rule has labor-supply confounds this cycle; unemployment increase has been modest), but together they show the landing was rougher than the bullish narrative suggests.\n\n(3) Causal attribution: This is the most underweighted issue in the standard \"Fed won\" framing. The SF Fed Shapiro decomposition and Bernanke-Blanchard (2024) work indicate that supply-driven inflation components (energy, goods supply-chain normalization) accounted for a large share of both the inflation surge and the subsequent disinflation. If 1/3 to 1/2 of the disinflation was supply-side mean-reversion that would have happened without Fed action, then the Fed's tightening \"achieved\" disinflation in a much weaker sense than headlines suggest \u2014 while its more direct effect was the labor market cooling that nearly triggered Sahm.\n\nBottom line: A soft landing in the loose sense (inflation down a lot, no NBER recession) \u2014 yes. A clean Fed-engineered soft landing with inflation on a clear path to 2% and the labor market still robust \u2014 the data don't fully support that.",
+      "open_questions": [
+        "Will the H2-2024/early-2025 stall in core PCE around 2.7\u20133.0% prove transitory or persistent? Tariff-driven inflation in 2025 complicates the read.",
+        "Counterfactual: what would 2023\u201324 core PCE have looked like with no Fed tightening but with the same supply-chain and energy normalization? No clean identification exists.",
+        "Did the Sahm Rule trigger represent a true labor-demand weakening that was rescued by rate cuts, or a labor-supply-driven false positive (immigration surge raising UNRATE numerator without job losses)?",
+        "Was the Q1 2022 GDP contraction substantive or a noise/inventory artifact in initial Fed tightening conditions?",
+        "Will NBER ultimately date a short/shallow recession around mid-2024 given the unemployment plateau and Sahm trigger, or will the data continue to support a no-recession verdict?"
+      ]
+    },
+    "iterations": 2,
+    "cost_estimate_usd": "",
+    "elapsed_seconds": ""
+  },
+  {
+    "question_id": "Q2",
+    "question": "Was the U.S. yield curve inversion of 2022\u20132023 (10Y minus 2Y spread) more persistent than the 2006\u20132007 inversion that preceded the 2008 financial crisis?",
+    "mode": "loop_1",
+    "difficulty": "easy",
+    "tags": [
+      "yield_curve",
+      "recession_prediction",
+      "monetary_policy"
+    ],
+    "scores": {
+      "factual_accuracy": 7,
+      "reasoning_quality": 9,
+      "completeness": 8,
+      "total": 8.0,
+      "explanation": "The agent's answer correctly affirms that 2022\u20132024 inversion was more persistent and deeper, with accurate max depth (\u2013108 bps) and duration (~25.5 months uninterrupted). However, the reference states 2006\u20132007 depth as \u201350 to \u201370 bps, while the agent reports \u201319 bps maximum; this discrepancy on the historical inversion's magnitude (off by roughly 3\u20134x) warrants caution, though the directional comparison and core claim remain sound. The reasoning is methodical and well-evidenced with FRED citations; completeness is strong, including the important recession outcome note. The agent's precision on dates and trading-day counts exceeds the reference but introduces minor boundary ambiguity in late August 2024 that slightly clouds the 'uninterrupted' claim."
+    },
+    "final_answer": {
+      "claim": "Yes \u2014 the 2022\u20132024 U.S. 10Y\u20132Y yield curve inversion was substantially more persistent AND deeper than the 2006\u20132007 inversion. The 2022\u20132024 episode ran continuously negative for ~25.5 months (Jul 6, 2022 \u2013 Aug 26, 2024, roughly 543 trading days) with a maximum depth of -1.08 percentage points (-108 bps), versus the 2006\u20132007 episode which lasted ~17 months on a start-to-end basis but was repeatedly interrupted by positive windows and reached a maximum depth of only about -0.19 ppts (-19 bps).",
+      "confidence": "high",
+      "evidence_summary": "All values from FRED series T10Y2Y (units: percentage points; multiply by 100 for basis points).\n\n2022\u20132024 INVERSION:\n- Start: T10Y2Y = +0.04 on 2022-07-01; 0.00 on 2022-07-05; first negative print on 2022-07-06 at -0.04. Sustained inversion start = July 6, 2022.\n- Max depth: -1.08 ppts (-108 bps) on 2023-07-03 (surrounding values: -1.02 on 6/29, -1.06 on 6/30, -0.99 on 7/05).\n- End of uninterrupted negative streak: Aug 26, 2024 (-0.09). Then 0.00 on Aug 27, +0.01 on Aug 28, 0.00 on Aug 29 and Aug 30, back to -0.04 on Sep 3, +0.01 on Sep 4, -0.02 on Sep 5, and definitively positive at +0.06 on Sep 6, 2024. So there is brief boundary ambiguity in late Aug / early Sep 2024.\n- Duration: ~25.5 months / ~543 consecutive negative trading days to Aug 26, 2024; ~26 months to the last negative print on Sep 5, 2024.\n\n2006\u20132007 INVERSION:\n- First sustained negative readings in early 2006 (e.g., -0.12 on 2006-03-01), but the spread turned POSITIVE on Mar 8, 2006 (+0.01) and stayed positive only briefly: Mar 8\u201320 was positive, then re-INVERTED Mar 21\u201329 (Mar 21 = -0.01, Mar 22 = -0.04, Mar 23 = -0.04, Mar 24 = -0.05, Mar 27 = -0.02, Mar 28 = -0.02, Mar 29 = -0.01), before turning positive again Mar 30. The spread then remained generally positive through early summer 2006 before re-inverting durably in mid-2006.\n- Max depth: -0.19 ppts (-19 bps) on Nov 15 and Nov 16, 2006.\n- End: June 5, 2007 = -0.01 (still negative); June 6 = 0.00; June 7 = +0.08 (definitive turn positive). Correct end is June 6\u20137, 2007 (not June 5\u20136).\n- Character: fragmented \u2014 multiple crossings around zero in spring 2006; only durably inverted from mid-2006 to early June 2007.\n\nCOMPARISON:\n- Depth: 2022\u20132024 was ~5.7x deeper (-108 bps vs -19 bps).\n- Duration of uninterrupted negative streak: 2022\u20132024 ~25.5 months vs 2006\u20132007 only ~12 months of uninterrupted inversion (roughly mid-2006 through June 6, 2007), with earlier 2006 episodes interrupted.\n- Recession outcome: 2006\u20132007 inversion preceded the December 2007 NBER recession start (~6 months after curve un-inverted). The 2022\u20132024 inversion had not been followed by an NBER-dated recession as of end-2024, despite being deeper and longer.",
+      "rationale": "The critic flagged six specific factual/unit errors in the prior submission. I re-pulled the relevant FRED T10Y2Y windows (July 2022, Aug-Sep 2024, March 2006, May-June 2007, plus the two max-depth windows) and confirmed each correction:\n\n(1) UNITS: T10Y2Y is in percentage points, not basis points. The max-depth value of -1.08 means -1.08 ppts = -108 bps. I now consistently label as either \"percentage points (ppts)\" or \"basis points (bps)\" with the correct numerical conversion.\n\n(2) START DATE: FRED shows 2022-07-05 = 0.00 exactly, and 2022-07-06 = -0.04 is the first negative. Sustained inversion correctly starts July 6, 2022.\n\n(3) END DATE / CONTINUITY: The \"uninterrupted\" negative streak ends Aug 26, 2024. Aug 27 = 0.00, Aug 28 = +0.01 (briefly positive), Aug 29-30 = 0.00, then back to negative -0.04 on Sep 3 and -0.02 on Sep 5, with definitive positive turn on Sep 6, 2024 (+0.06). I describe this nuance explicitly rather than claiming a clean end on Aug 27.\n\n(4) MARCH 2006: The supposedly \"positive March 8 to June 5\" window had its own internal inversion Mar 21\u201329 (seven negative trading days reaching -0.05). This makes the 2006 episode even more fragmented than originally described \u2014 strengthening the persistence comparison.\n\n(5) 2007 END DATE: Corrected from \"June 5\u20136\" to \"June 6\u20137, 2007\" \u2014 June 5 was still -0.01, June 6 was 0.00, June 7 was +0.08.\n\n(6) DEPTH vs DURATION: Both metrics favor 2022\u20132024 as the more \"intense\" inversion by traditional yield-curve-signal logic. The fact that this deeper/longer inversion did not produce an NBER recession by end-2024 is genuinely interesting and is noted in open questions.\n\nThe core claim \u2014 that 2022\u20132024 was more persistent than 2006\u20132007 \u2014 holds robustly on both calendar-month and trading-day metrics, and the depth comparison is dramatic (~5.7x).",
+      "open_questions": [
+        "Given that the 2022\u20132024 inversion was both deeper (-108 bps vs -19 bps) and longer (~25.5 months uninterrupted vs ~12 months uninterrupted) than the 2006\u20132007 inversion, yet had not produced an NBER-dated recession by end-2024, is depth-and-duration a degrading recession signal, or is the recession simply delayed?",
+        "Did unusual post-COVID factors (massive QE-driven long-end demand, term premium compression, aggressive Fed hiking from a near-zero base) make the 10Y\u20132Y a less reliable recession indicator than in prior cycles?",
+        "Would the 3M\u201310Y spread (often considered more predictive than 2Y\u201310Y in academic work, e.g., Estrella & Mishkin) tell a different persistence story?",
+        "How does the comparison look if measured by area-under-the-curve (integral of negative spread over time) rather than max depth or duration alone? This would amplify the 2022\u20132024 dominance even further.",
+        "Does the brief Aug 27 \u2013 Sep 5, 2024 zero/positive/negative chop count as one inversion episode ending Aug 26, or as one ending Sep 6, given the ambiguous re-inversions? Convention matters for cross-episode comparison."
+      ]
+    },
+    "iterations": 2,
+    "cost_estimate_usd": "",
+    "elapsed_seconds": ""
+  },
+  {
+    "question_id": "Q3",
+    "question": "Did real average hourly earnings (inflation-adjusted) grow or decline during the 2021\u20132022 U.S. inflation surge, and by approximately how much?",
+    "mode": "loop_1",
+    "difficulty": "easy",
+    "tags": [
+      "wages",
+      "inflation",
+      "labor_market"
+    ],
+    "scores": {
+      "factual_accuracy": 7,
+      "reasoning_quality": 9,
+      "completeness": 8,
+      "total": 8.0,
+      "explanation": "The agent's answer is factually sound and provides substantially more detail and nuance than the reference, with verified FRED data showing real AHE declined ~3.25% (CPI-deflated) during the 2021\u20132022 surge, consistent with the reference's ~3\u20134% YoY peak decline in June 2022. The agent correctly identifies the baseline contamination issue and provides composition-adjusted metrics (ECI), which strengthens the analysis. Minor deductions for incomplete sentence at the end and slight ambiguity about whether the reference's 'YoY' peak rates (~\u20133.5%) align with the agent's period-based calculations, though the magnitudes align well. The agent exceeds the reference in methodological sophistication by distinguishing AHE (composition-biased) from ECI (fixed-bundle) measures, a crucial distinction for inflation analysis."
+    },
+    "final_answer": {
+      "claim": "Real average hourly earnings declined modestly during the 2021\u20132022 inflation surge, but the magnitude depends critically on baseline and deflator. Measured from a clean pre-pandemic baseline (Feb 2020) with CPI, real AHE was essentially flat by Dec 2022 (+0.1%), having dipped to about \u22120.9% at the mid-2022 trough. The composition-free Employment Cost Index shows real wages fell about 2.6% (CPI-deflated) or 0.7% (PCE-deflated) from Q1 2020 to Q4 2022 \u2014 a more reliable estimate of what happened to a fixed bundle of jobs.",
+      "confidence": "high",
+      "evidence_summary": "FRED data, all values verified:\n\nPRE-PANDEMIC BASELINE (Feb 2020): AHE $28.54, CPI 259.25, PCEPI 104.573.\n\nAHE / CPI (real AHE in Feb-2020 dollars):\n- Feb 2020: $28.54 (baseline)\n- Dec 2020 (pandemic-distorted): $29.59 \u2192 +3.69% (composition artifact: low-wage workers missing from payrolls; AHE jumped from $28.73 in Mar 2020 to $30.04 in Apr 2020, a +5.3% one-month spike while CPI fell)\n- Jun 2022 (trough during surge): AHE $32.19, CPI 294.957 \u2192 real $28.29, \u22120.87% vs Feb 2020\n- Dec 2022: AHE $32.94, CPI 298.832 \u2192 real $28.58, +0.14% vs Feb 2020\n\nAHE / PCEPI (real AHE):\n- Dec 2022 vs Feb 2020: +1.95%\n- Jun 2022 trough vs Feb 2020: +1.13%\n\nWITHIN-SURGE (Jan 2021 \u2192 Dec 2022): nominal AHE +10.06%, CPI +13.76% \u2192 real \u22123.25%; with PCEPI (+11.53%) \u2192 real \u22121.32%.\n\nEMPLOYMENT COST INDEX \u2014 Wages & Salaries (ECIWAG, composition-free):\n- Q1 2020: 140.3; Q4 2022: 157.6 \u2192 nominal +12.33%\n- CPI Q1 2020 avg 258.82 \u2192 Q4 2022 avg 298.54 = +15.35% \u2192 real ECI \u22122.62%\n- PCEPI Q1 2020 avg 104.47 \u2192 Q4 2022 avg 118.18 = +13.12% \u2192 real ECI \u22120.70%\n\nPRIOR (CONTAMINATED) BASELINE Dec 2020 \u2192 Dec 2022: nominal AHE +10.13%, CPI +14.04%, real \u22123.43%; with PCEPI (+12.00%) real \u22121.67%. About 3.7 percentage points of this apparent decline is the unwinding of the pandemic composition effect, not genuine inflation erosion.",
+      "rationale": "The critic was correct that Dec 2020 is a contaminated baseline. The Apr 2020 AHE jump to $30.04 (+5.3% in one month while CPI was falling) is a clear composition artifact: lower-paid hospitality/retail workers were laid off, mechanically raising the mean wage of those still employed. Real AHE was 3.7% above its true pre-pandemic level by Dec 2020. Anchoring to Feb 2020 corrects this. Using AHE/CPI, real wages dipped about 0.9% at the mid-2022 inflation peak and recovered to essentially flat by Dec 2022. The PCE deflator (which gives less weight to volatile components like energy and rent that surged most) shows real AHE actually slightly higher than pre-pandemic throughout. However, AHE itself is composition-contaminated in both directions (workers re-entering biases AHE downward post-2021, partially offsetting inflation erosion). The Employment Cost Index \u2014 designed to hold occupation/industry weights fixed \u2014 cuts through this. ECI shows real wages fell 2.6% (CPI) or 0.7% (PCE) from Q1 2020 to Q4 2022. This is the most defensible estimate of what a typical worker actually experienced: a modest real wage decline, not the dramatic 3\u20134% loss implied by the Dec-2020-anchored AHE comparison. The framing 'real wages were destroyed by inflation' significantly overstates what happened; the framing 'real wages returned to roughly pre-pandemic levels with a modest dip in between' is closer to the truth.",
+      "open_questions": [
+        "The ECI and AHE diverge: ECI implies a real decline of \u22120.7% to \u22122.6% from Q1 2020 to Q4 2022, while AHE/CPI shows +0.1%. Composition effects (continued re-entry of lower-wage workers through 2021-22 biasing AHE downward in nominal terms but the index higher when reweighted) plausibly explain this \u2014 but quantifying exactly how much is hard without microdata.",
+        "The Atlanta Fed Wage Growth Tracker (median 12-month wage growth for matched individuals) would be the gold-standard cross-check but is not on FRED in a directly comparable form; published values suggest ~5\u20136% YoY nominal wage growth for stayers in 2022, broadly consistent with ECI rather than AHE.",
+        "Distributional question: aggregate real wages being roughly flat masks substantial heterogeneity \u2014 low-wage workers' real wages rose meaningfully (Autor-Dube-McGrew 2023) while middle/high-wage workers saw real declines. The aggregate AHE/ECI number obscures this."
+      ]
+    },
+    "iterations": 2,
+    "cost_estimate_usd": "",
+    "elapsed_seconds": ""
+  },
+  {
+    "question_id": "Q4",
+    "question": "Which sector drove U.S. employment recovery more strongly in the 12 months following the COVID-19 trough (April 2020): leisure & hospitality or professional & business services?",
+    "mode": "loop_1",
+    "difficulty": "medium",
+    "tags": [
+      "labor_market",
+      "covid",
+      "sector_analysis"
+    ],
+    "scores": {
+      "factual_accuracy": 7,
+      "reasoning_quality": 8,
+      "completeness": 6,
+      "total": 7.0,
+      "explanation": "The agent correctly identifies leisure & hospitality as the stronger driver in absolute terms (+4.85M vs +1.88M) with accurate FRED citations and sound causal reasoning about lockdown impacts. However, the numbers diverge slightly from the reference (reference cites ~5.5M and ~2.5M gains; agent reports 4.849M and 1.880M), suggesting either data vintage differences or minor FRED series selection issues\u2014sufficient to dock 2\u20133 points on factual precision. The agent omits the important nuance that professional & business services actually recovered a larger *percentage* of its own losses (~74% vs ~62%), which is a material analytical point that weakens completeness."
+    },
+    "final_answer": {
+      "claim": "Leisure & hospitality drove the U.S. employment recovery far more strongly than professional & business services in the 12 months after the April 2020 COVID trough \u2014 adding roughly 4.85 million jobs (+55.6%) versus 1.88 million (+9.8%) for PBS.",
+      "confidence": "high",
+      "evidence_summary": "FRED seasonally adjusted data (USLAH, USPBS): Leisure & Hospitality fell from 16,889k (Feb 2020) to a trough of 8,719k in April 2020, then rebounded to 13,568k by April 2021 \u2014 a gain of +4,849k (+55.6%). Professional & Business Services fell from 21,483k (Feb 2020) to 19,223k in April 2020, then rose to 21,103k by April 2021 \u2014 a gain of +1,880k (+9.8%). Non-seasonally-adjusted series (CEU7000000001 and CEU6000000001) give nearly identical results: L&H +4,834k (+56.2%); PBS +1,883k (+9.8%). L&H thus contributed about 2.6x more jobs in absolute terms and recovered at roughly 5.7x the percentage rate.",
+      "rationale": "The COVID shock hit contact-intensive service sectors disproportionately. Leisure & hospitality lost about 8.2 million jobs (nearly half its workforce) between February and April 2020 because of lockdowns, restaurant/bar/hotel/travel closures, and event cancellations. Professional & business services \u2014 which includes many roles amenable to remote work (consulting, legal, accounting, IT services, administrative support) \u2014 lost only about 2.3 million jobs (~10%). With reopening, vaccine rollout, and reignited demand for in-person services, L&H had both far more lost ground to recover and high pent-up demand, producing the largest absolute and percentage rebound of any major sector. The same conclusion holds in both seasonally adjusted (USLAH/USPBS) and not-seasonally-adjusted (CEU) series, providing robustness.",
+      "open_questions": [
+        "Although L&H led the recovery in raw job gains, by April 2021 it remained roughly 3.3 million jobs below its Feb 2020 peak, so 'recovery' was relative \u2014 not a return to pre-pandemic levels.",
+        "Sector definitions: this analysis uses BLS supersector totals; finer subsector dynamics (e.g., accommodation vs. food services, or temp help vs. management consulting within PBS) could show different patterns.",
+        "Some PBS gains may reflect temp-help staffing for other sectors rather than organic sector growth."
+      ]
+    },
+    "iterations": 1,
+    "cost_estimate_usd": "",
+    "elapsed_seconds": ""
+  },
+  {
+    "question_id": "Q5",
+    "question": "Was M2 money supply growth a leading indicator of the 2021\u20132022 inflation surge? Specifically, did the M2 acceleration in 2020 precede the CPI acceleration by a meaningful and historically consistent lag?",
+    "mode": "loop_1",
+    "difficulty": "hard",
+    "tags": [
+      "monetary_policy",
+      "inflation",
+      "money_supply",
+      "leading_indicator"
+    ],
+    "scores": {
+      "factual_accuracy": 9,
+      "reasoning_quality": 9,
+      "completeness": 8,
+      "total": 8.67,
+      "explanation": "The agent's core factual claims align closely with the reference: M2 peaked at ~26.8\u201327% YoY in Feb 2021, CPI accelerated sharply in Apr 2021 and peaked ~15\u201316 months later in Jun 2022, fitting the 12\u201324 month monetarist lag. Numerics are accurate (15.493T\u219219.6T in Feb 2020\u21922021; CPI 1.7%\u21928.98%). The agent's reasoning depth exceeds the reference by critically examining historical inconsistency (1970s vs. 2008\u201314 QE), correctly flagging velocity collapse and fiscal regime differences as confounds, and citing specific research (Hanke/Greenwood, St. Louis Fed). Minor deductions: the agent's M2 level for Feb 2022 (~$21.7T in reference) is not explicitly provided in the agent answer (which focuses on YoY growth rates), though this is implicit in the calculations shown. The agent's claim that the 2020\u201322 relationship is 'striking but not historically reliable' is more cautious than the reference's implicit endorsement of consistency with 'historical monetarist range,' which the agent acknowledges but appropriately contextualizes. The open questions, while intellectually honest, slightly dilute confidence in the core claim without resolving them."
+    },
+    "final_answer": {
+      "claim": "M2's 2020 acceleration did precede the 2021\u201322 CPI surge by roughly 12\u201316 months, consistent with monetarist \"long and variable lag\" claims \u2014 but the historical record is mixed: a similar lag held loosely in the 1970s, while in the post-1990 era (and especially 2008\u20132014) large M2 surges produced no inflation, so 2020\u201322 is better described as a striking but not historically reliable lead.</claim>\n<confidence>medium</confidence>\n<evidence_summary>FRED M2SL and CPIAUCSL data: M2 jumped from $15,493B (Feb 2020) to $17,065B (Apr 2020) \u2014 a ~10% two-month surge \u2014 and YoY M2 growth peaked at ~26.8% in Feb 2021 (19,641.8 vs 15,493.4 a year earlier), the highest reading since the series began in 1959. CPI YoY was only +1.7% in Feb 2021 (263.6 vs 259.3). CPI YoY then accelerated through 2021 (+2.6% in Mar, +4.1% Apr, +5.3% Jun) and peaked at +8.98% in Jun 2022 (294.957 vs 270.654). So the lag from M2 YoY peak (Feb 2021) to CPI YoY peak (Jun 2022) was ~16 months; the lag from initial M2 surge (Mar\u2013Apr 2020) to CPI's clear acceleration above 4% (Apr 2021) was ~12 months. M2 then decelerated sharply \u2014 YoY M2 fell from +26.8% (Feb 2021) to +9.6% (Mar 2022) to NEGATIVE (-1.0% Dec 2022, -2.4% Mar 2023), and CPI YoY peaked about 12-16 months later and rolled over (Dec 2023 CPI YoY = +3.4%), again consistent with the lag. Historical consistency check: in the 1970s, M2 YoY rose from ~6% (1970) to ~13% (Dec 1971\u2192Dec 1972) and CPI YoY rose from ~3% (1972) to 8.9% (1973) and 12.1% (1974), a 12\u201324 month lag \u2014 broadly consistent. BUT: 2008\u20132014 M2 grew ~6\u201310% YoY with CPI stuck at 1\u20132%; 1995\u20132000 M2 grew 6\u20139% YoY with CPI ~2\u20133%. Hanke/Greenwood (Johns Hopkins, May 2021) correctly forecast the 2021\u201322 inflation surge from the M2 bulge using a ~2-year lag framework; St. Louis Fed (2023) confirms Friedman's \"long and variable lags\" hold but vary widely.</evidence_summary>\n<rationale>The timing question has two parts: (1) Did M2 lead CPI in 2020-22? (2) Is the lag historically consistent? On (1) the data are clear and striking: the M2 acceleration began in March-April 2020 (the largest two-month jump in series history), YoY M2 growth peaked at an unprecedented ~27% in Feb 2021, and the CPI YoY peak followed ~16 months later at ~9% in June 2022. Even more notable, M2's deceleration and outright contraction in 2022-23 preceded the CPI disinflation by a similar lag. This episode aligns well with Friedman's monetarist framework and was correctly forecast by economists like Hanke and Greenwood in early 2021. On (2), however, the historical record is mixed. The 1970s show a similar 12-24 month M2\u2192CPI lag, but the post-1990 period has seen the relationship break down: massive QE-driven M2 surges in 2008-2014 produced no inflation, and the 1990s saw 6-9% M2 growth alongside benign 2-3% CPI. This is generally attributed to velocity declines and changed monetary regime. So 2020-22 looks like the relationship \"re-emerged\" \u2014 likely because the M2 surge was so extreme (27% vs ~10% historic norms) and was paired with fiscal transfers directly to households (raising velocity), unlike QE which sat as bank reserves. The honest characterization: M2 was a useful leading indicator in this specific episode with a ~12-16 month lead, but treating M2 as a reliable predictor across all regimes would be wrong given its post-1990 track record of false signals.</rationale>\n<open_questions>[\"Was the 2020-22 episode special because the M2 expansion was paired with direct fiscal transfers (vs. QE that stays in bank reserves), and would a similar M2 surge under a different fiscal regime have produced inflation?\", \"How much of the 2021-22 CPI surge was actually driven by supply-side shocks (energy, supply chains, China lockdowns) that coincidentally lagged M2 by ~12 months, making the apparent lead spurious?\", \"Does adjusting for velocity changes (per Reynard 2006, 'Money and the Great Disinflation') restore a stable M-to-CPI relationship across regimes, or does the 2020-22 case still look like an outlier?\", \"Why did the 2008-2014 M2 surge (post-GFC QE) fail to produce inflation despite YoY M2 growth of 8-10% \u2014 and what does that imply about M2's reliability as a leading indicator going forward?\"]</open_questions>\n</invoke>"
+    },
+    "iterations": 1,
+    "cost_estimate_usd": "",
+    "elapsed_seconds": ""
+  },
+  {
+    "question_id": "Q6",
+    "question": "Did the unemployment rate lead or lag real GDP growth during the 2008\u20132009 Great Recession, and by approximately how many quarters?",
+    "mode": "loop_1",
+    "difficulty": "easy",
+    "tags": [
+      "recession",
+      "unemployment",
+      "gdp",
+      "leading_lagging_indicators"
+    ],
+    "scores": {
+      "factual_accuracy": 6,
+      "reasoning_quality": 7,
+      "completeness": 5,
+      "total": 6.0,
+      "explanation": "The agent correctly identifies the primary lag (1\u20132 quarters, GDP trough Q2 2009 \u2192 UNRATE peak Q4 2009) and invokes Okun's Law appropriately. However, the claim about a 3\u20134 quarter lead at onset is problematic: unemployment rising from 4.4% to 4.7% (May\u2013July 2007) is a modest 30 bps drift, not a clear economic signal, and the timing relative to the December 2007 official recession start is overstated. The core answer aligns with the reference, but the asymmetry argument and cross-correlation evidence lack rigor and distract from the main finding. The answer is more comprehensive than the reference but introduces unsubstantiated complexity."
+    },
+    "final_answer": {
+      "claim": "The lead/lag relationship between unemployment and real GDP during the 2008\u20132009 Great Recession was asymmetric. At the onset, the unemployment rate's initial drift higher LED the GDP level peak by roughly 3\u20134 quarters (UNRATE bottomed at 4.4% in May 2007 and reached 4.7% by Jul 2007, while real GDP did not peak until Q2 2008 at $16,943.3B). At the trough and through the bulk of the downturn, however, unemployment LAGGED GDP by approximately 1\u20132 quarters (GDP trough Q2 2009; UNRATE peak 10.0% in Oct 2009 = Q4 2009). A quarterly cross-correlation between QoQ real GDP growth and \u0394unemployment (2007\u20132010) peaks at lag +1 quarter (unemployment lagging), consistent with Okun's-law dynamics.</claim>\n<parameter name=\"confidence\">medium"
+    },
+    "iterations": 2,
+    "cost_estimate_usd": "",
+    "elapsed_seconds": ""
+  },
+  {
+    "question_id": "Q1",
+    "question": "Did the Federal Reserve achieve a 'soft landing' in its 2022\u20132023 rate hike cycle \u2014 that is, did core PCE inflation return meaningfully toward 2% without the U.S. economy entering a recession?",
+    "mode": "loop_n",
+    "difficulty": "medium",
+    "tags": [
+      "monetary_policy",
+      "inflation",
+      "recession"
+    ],
+    "scores": {
+      "factual_accuracy": 6,
+      "reasoning_quality": 5,
+      "completeness": 4,
+      "total": 5.0,
+      "explanation": "The agent provides correct data points (core PCE peaked ~5.6%, fell substantially, no NBER recession declared) but fundamentally misframes the question by extending the evaluation horizon to September 2025, well beyond the 2022\u20132023 cycle the reference answer addresses. The reference answer correctly evaluates the 2022\u20132023 cycle as a soft landing by end-2023 standards; the agent's claim of 'partial/incomplete soft landing' reflects late-2025 deterioration irrelevant to the original question's time frame. The agent's data on recent inflation re-acceleration and labor market softening are factually sound but shift the goalposts rather than answer what was asked. Missing direct engagement with whether the 2022\u20132023 cycle itself succeeded by conventional definition."
+    },
+    "final_answer": {
+      "claim": "The Fed achieved a partial/incomplete soft landing from the 2022\u20132023 hiking cycle: no NBER recession was declared and inflation fell substantially from its peak, but as of the latest firm data (Sep 2025), neither headline PCE (2.79% YoY) nor core PCE (2.82% YoY) has durably reached the 2% target \u2014 both are re-accelerating from June lows \u2014 while unemployment has drifted up to 4.4% (a cycle high) with three negative monthly payroll prints in 2025. The \"soft landing\" label fits a snapshot from mid-2024 to mid-2025 better than the late-2025 picture, which shows late-cycle softening.",
+      "confidence": "medium",
+      "evidence_summary": "INFLATION (FRED PCEPI, PCEPILFE):\n- Headline PCE peak Jun 2022: 7.24% YoY. Core PCE peak Feb 2022: 5.60% YoY.\n- Headline PCE YoY trajectory: Jun 2025 = 2.59%, Jul = 2.61%, Aug = 2.75% (127.293/123.889\u22121), Sep = 2.79% (127.625/124.164\u22121). Re-accelerating, not at target.\n- Core PCE YoY: Jun 2025 = 2.79%, Jul = 2.86%, Aug = 2.91% (126.714/123.128\u22121), Sep = 2.82% (126.954/123.466\u22121). Stuck in the high-2.8s/low-2.9s \u2014 ~80\u201390 bps above target with no clear convergence.\n- The Fed's own communications (FOMC statements, SEP) consistently emphasize core PCE as the operational near-term guide, so core stickiness is the more relevant criterion.\n\nGDP (FRED GDPC1, current vintage):\n- Q4 2021: 21,988.737 \u2192 Q1 2022: 21,932.71 = \u22120.26% QoQ (contraction). Q1 \u2192 Q2 2022: 21,932.71 \u2192 21,967.045 = +0.16% QoQ (POSITIVE; not a contraction). The \"two consecutive negative quarters\" of H1 2022 is a stale narrative based on early BEA vintage; current data shows only Q1 2022 was negative.\n- Q4 2024 \u2192 Q1 2025: 23,586.542 \u2192 23,548.21 = \u22120.16% QoQ contraction. Q2 2025 recovered to 23,770.976 (+0.95%), Q3 2025 = 24,026.834.\n- No two consecutive contracting quarters in the cycle.\n\nLABOR (FRED UNRATE, PAYEMS, SAHMREALTIME):\n- Unemployment: Jan 2022 pre-hike baseline = 4.0%; Apr 2023 trough = 3.4%; Sep 2025 = 4.4% (highest in dataset). +0.4 ppt from pre-hike baseline, +1.0 ppt from trough.\n- Payrolls (PAYEMS) negative monthly prints in 2025: Jan (158,268 vs Dec 2024 158,316 = \u221248K), Jun (158,478 vs May 158,498 = \u221220K), Aug (158,472 vs Jul 158,542 = \u221270K). Three negative prints, not two.\n- Sahm Rule: peaked 0.57 (Aug 2024), retreated to 0.10 (Jul 2025), then re-accelerated: Aug = 0.13, Sep = 0.23. Renewed uptick, though not yet at 0.50 trigger.\n\nNBER RECESSION: No recession declared. USREC indicator remains at 0 throughout the cycle.",
+      "rationale": "By the strict formal definition (core PCE durably at 2% with no recession), the Fed has NOT achieved a soft landing as of late 2025: core PCE has been stuck in the 2.7\u20132.9% range for over a year and Sep 2025 reading of 2.82% shows no convergence. Headline PCE briefly touched 2.59% in Jun 2025 but has re-accelerated to 2.79% by Sep 2025, moving away from target. Even using headline (which the Fed's formal mandate references but FOMC communications de-emphasize in favor of core), the \"at target\" claim is fragile and snapshot-dependent.\n\nBy the looser informal definition (substantial disinflation without a recession), the outcome looks more favorable: headline PCE fell ~445 bps from peak (7.24% \u2192 2.79%), core PCE fell ~278 bps (5.60% \u2192 2.82%), no NBER recession, no two consecutive negative GDP quarters, and ~1.5 million net jobs added in 2024\u20132025. This is a remarkable outcome historically.\n\nBut the late-cycle picture (mid-to-late 2025) shows clear softening that complicates the soft-landing narrative: (1) Q1 2025 GDP contracted; (2) unemployment hit 4.4% in Sep 2025, a new cycle high and 1.0 ppt above the trough; (3) three negative monthly payroll prints in 2025 (Jan, Jun, Aug); (4) Sahm Rule reversed from 0.10 back up to 0.23 Aug-Sep; (5) both headline and core PCE are re-accelerating rather than converging to target.\n\nFraming the unemployment rise as +0.4 ppt from pre-hike baseline (4.0% \u2192 4.4%) is more honest than +1.0 ppt from trough, but the trend direction matters: unemployment has been drifting upward since Apr 2023 and just hit a cycle high. The Fed's preferred core PCE measure has been running ~80\u201390 bps above target with no visible convergence path, which deserves explicit weight rather than being minimized by pivoting to headline.\n\nNet assessment: this is best described as a \"partial soft landing\" or \"soft landing on the recession-avoidance criterion, incomplete on the inflation criterion\" \u2014 a more defensible characterization than either \"achieved\" or \"failed.\"",
+      "open_questions": [
+        "Whether the late-2025 re-acceleration in PCE inflation is transient (tariff/one-off effects) or signals a more persistent plateau above 2%",
+        "Whether the Sep 2025 unemployment uptick to 4.4% and renewed Sahm Rule rise to 0.23 mark the beginning of a more pronounced labor market deterioration",
+        "How the NBER business cycle dating committee will ultimately characterize Q1 2025's GDP contraction in retrospect",
+        "Whether forward Fed easing in late 2025 successfully extends the expansion or arrives too late given visible labor softening"
+      ]
+    },
+    "iterations": 4,
+    "cost_estimate_usd": "",
+    "elapsed_seconds": ""
+  },
+  {
+    "question_id": "Q2",
+    "question": "Was the U.S. yield curve inversion of 2022\u20132023 (10Y minus 2Y spread) more persistent than the 2006\u20132007 inversion that preceded the 2008 financial crisis?",
+    "mode": "loop_n",
+    "difficulty": "easy",
+    "tags": [
+      "yield_curve",
+      "recession_prediction",
+      "monetary_policy"
+    ],
+    "scores": {
+      "factual_accuracy": 7,
+      "reasoning_quality": 9,
+      "completeness": 8,
+      "total": 8.0,
+      "explanation": "The agent's core claim\u2014that 2022\u20132024 was more persistent and deeper than 2006\u20132007\u2014is correct and well-supported by FRED data. The 782-day unbroken streak vs. ~215 days and \u22121.08 pp vs. \u22120.19 pp depth are accurate and exceed the reference's vaguer 24-month and \u2212100bps framing. However, the agent claims the 2006\u20132007 inversion lasted ~12 months, but the agent's own corrected analysis shows the longest unbroken streak was 215 calendar days (~7 months), and the reference's '~12 months' for 2006\u20132007 is itself imprecise\u2014suggesting some ambiguity in how both sources define the episode. The agent provides superior granularity and day-level verification but does not address the key reference point: that despite its persistence, the 2022\u20132023 inversion did not produce a declared recession through end-2023, challenging its predictive power. This omission slightly reduces completeness relative to the reference's emphasis on this anomaly."
+    },
+    "final_answer": {
+      "claim": "Yes \u2014 the 2022\u20132024 U.S. 10Y\u20132Y yield curve inversion was substantially more persistent and deeper than the 2006\u20132007 inversion. Under a strict \"unbroken-streak\" standard it lasted ~782 calendar days (Jul 6, 2022 \u2192 Aug 26, 2024) vs. ~215 calendar days for the longest clean 2006\u201307 streak (Aug 17, 2006 \u2192 Mar 20, 2007) \u2014 a ~3.6x ratio \u2014 and its trough of \u22121.08 pp (Jul 3, 2023) was ~5.7x deeper than the 2006\u201307 trough of \u22120.19 pp (Nov 15\u201316, 2006).",
+      "confidence": "high",
+      "evidence_summary": "FRED T10Y2Y daily data:\n\n**2022\u20132024 inversion (strict unbroken streak):**\n- Start: 2022-07-06 (\u22120.04). Every trading day strictly negative through 2024-08-26 (\u22120.09).\n- First non-negative print: 2024-08-27 (0.00); decisively positive by 2024-09-13 (+0.09).\n- Continuous duration: ~782 calendar days (\u224826 months).\n- Deepest reading: \u22121.08 pp on 2023-07-03; spread was below \u22121.00 pp for an extended stretch in late June\u2013early July 2023.\n\n**2006\u20132007 inversion (strict unbroken streak \u2014 CORRECTED):**\n- Longest clean negative streak begins 2006-08-17 (\u22120.02) \u2014 Aug 16 = 0.00 breaks any prior streak.\n- Streak runs continuously negative through 2007-03-20 (\u22120.04).\n- Streak ends 2007-03-21 (+0.02). Spread then remains non-negative every trading day from 2007-03-21 through 2007-05-02 (verified day-by-day: 2007-03-21=+0.02, 2007-03-28=+0.09 peak, 2007-04-13/16=0.00, 2007-05-02=0.00).\n- New negative streak begins 2007-05-03 (\u22120.03) and runs to 2007-06-05 (\u22120.01); 2007-06-06=0.00; decisively positive thereafter (2007-06-07=+0.08).\n- Longest unbroken streak duration: 2006-08-17 \u2192 2007-03-20 = **215 calendar days** (~7 months).\n- Deepest reading: \u22120.19 pp on Nov 15 and Nov 16, 2006 (Nov 14 = \u22120.17).\n\n**First-to-last negative print windows (more permissive metric):**\n- 2022\u201324: ~2022-04-01 (first brief \u22120.05) \u2192 2024-08-26 \u2192 ~880 calendar days, but more cleanly Jul 6, 2022 \u2192 Aug 26, 2024 (~782 days).\n- 2006\u201307: 2005-12-27 (first \u22120.01) \u2192 2007-06-05 (\u22120.01) \u2248 526 calendar days, riddled with positive interruptions in Mar 2006, Apr\u2013May 2006, Jul\u2013Aug 2006, and Mar\u2013May 2007.\n\n**Ratios:**\n- Strict unbroken streak: 782 / 215 \u2248 **3.64x longer**.\n- First-to-last window: 782 / 526 \u2248 1.49x longer (and the 2022\u201324 window has zero positive interruptions while the 2006\u201307 window has many).\n- Depth: |\u22121.08| / |\u22120.19| \u2248 **5.68x deeper**.\n\n**Corroborating sources:** Multiple market commentaries (Bilello, NTSA, TradingView) confirm the 2022\u20132024 inversion was the longest 2s10s inversion on record, surpassing the prior 1978\u201379 record (~624 days).",
+      "rationale": "Persistence can be measured by (a) duration of continuous inversion under a strict streak standard, (b) the first-to-last negative print window, and (c) depth (a deeper inversion is more \"robust\" to un-inverting). On all three measures the 2022\u20132024 episode dominates 2006\u20132007:\n\n1. **Strict unbroken streak (correcting prior error):** The critic correctly flagged that the 2006\u201307 longest unbroken streak ends on Mar 20, 2007 (last strictly negative print), not May 31, 2007 \u2014 because Mar 21\u2013May 2, 2007 contains ~30 trading days of zero or positive prints (verified directly: 2007-03-21=+0.02, 2007-03-28=+0.09, 2007-04-13=0.00, 2007-05-02=0.00). The corrected longest clean streak is Aug 17, 2006 \u2192 Mar 20, 2007 = 215 calendar days. The 2022\u201324 streak of 782 days is therefore ~3.64x longer (not 2.7x as I previously claimed). This actually strengthens the directional finding.\n\n2. **First-to-last window:** Even using the most permissive 2006\u201307 window (Dec 2005 first negative \u2192 Jun 5, 2007 last negative = ~526 days), the 2022\u201324 streak (782 days) is longer \u2014 and crucially, contains zero positive interruptions, whereas the 2006\u201307 window contains many.\n\n3. **Depth:** \u22121.08 pp vs. \u22120.19 pp = 5.7x deeper trough in 2022\u201324.\n\nIndependent market commentary corroborates that the 2022\u20132024 inversion was the longest in U.S. history, beating the 1978\u201379 record. Therefore the answer is unambiguous and the magnitude of the gap, under the strict standard, is even larger than previously stated: 2022\u20132024 was ~3.6x more persistent and ~5.7x deeper than 2006\u20132007.",
+      "open_questions": [
+        "The 2022\u201324 streak end date depends on threshold: Aug 27, 2024 is the first 0.00 print, but using a 5-day moving average crossing would shift by a couple of weeks \u2014 doesn't change the conclusion.",
+        "The 2006\u201307 episode could also be framed as two separate clean sub-inversions (Aug 17, 2006 \u2192 Mar 20, 2007 = 215 days, and May 3 \u2192 Jun 5, 2007 = 33 days) separated by a 6-week positive gap, vs. one continuous 2022\u201324 episode \u2014 which makes the persistence gap even starker.",
+        "Other curve measures (10Y\u20133M, 5Y\u20133M) might rank persistence somewhat differently, though 10Y\u20133M also set duration records in 2022\u20132024."
+      ]
+    },
+    "iterations": 4,
+    "cost_estimate_usd": "",
+    "elapsed_seconds": ""
+  },
+  {
+    "question_id": "Q4",
+    "question": "Which sector drove U.S. employment recovery more strongly in the 12 months following the COVID-19 trough (April 2020): leisure & hospitality or professional & business services?",
+    "mode": "loop_n",
+    "difficulty": "medium",
+    "tags": [
+      "labor_market",
+      "covid",
+      "sector_analysis"
+    ],
+    "scores": {
+      "factual_accuracy": 6,
+      "reasoning_quality": 7,
+      "completeness": 5,
+      "total": 6.0,
+      "explanation": "The agent's absolute job gains for L&H (+4,849k) align well with the reference (~5.5M), but PBS recovery is materially misstated: the agent reports +1,880k vs. the reference's ~2.5M, a significant 33% undercount that distorts the core comparison. The agent correctly identifies L&H's leadership on absolute gains and provides sophisticated decomposition (temp-help analysis, trend deviations), but this methodological depth does not compensate for the baseline factual error on PBS recovery magnitude. The recovery-share calculations (59% vs 62% for L&H; 83% vs 74% for PBS) diverge from reference values\u2014the agent's higher PBS percentage reflects the undercounted denominator. The response demonstrates intellectual rigor and nuance but undermines credibility by stating numbers with high precision while missing the reference's core quantitative claim."
+    },
+    "final_answer": {
+      "claim": "In the 12 months after the April 2020 trough, leisure & hospitality (L&H) drove the absolute job rebound (+4,849k vs. +1,880k for professional & business services), but once PBS is decomposed into its temp-help subsector and \"core\" PBS, the apparent symmetry between the sectors becomes clearer: temp-help (only ~10% of PBS at the Apr 2020 trough, ~13% at the Feb 2020 peak) generated roughly 46% of the PBS gain, leaving core PBS contributing only ~1,014k. The honest verdict: L&H led the rebound by a wide margin; PBS led on completed recovery but with caveats (temp-help front-loading, and PBS plateaued Jan\u2013May 2023 before declining 207k through Dec 2023). Neither sector demonstrates unambiguous economic \"strength\" \u2014 both reflect mean-reversion from sector-specific shocks of very different magnitudes.",
+      "confidence": "high",
+      "evidence_summary": "FRED data, all verified:\n\nABSOLUTE RECOVERY (Apr 2020 \u2192 Apr 2021):\n\u2022 USLAH: 8,719 \u2192 13,568 = +4,849k (+55.6%)\n\u2022 USPBS: 19,223 \u2192 21,103 = +1,880k (+9.8%)\n\u2022 Pre-pandemic peaks (Feb 2020): L&H 16,889k; PBS 21,483k\n\u2022 Recovery ratio at Apr 2021: L&H 59% of lost jobs back; PBS 83%\n\nTEMP-HELP DECOMPOSITION (TEMPHELPS, CES6056132001 \u2014 a subsector of PBS supersector CES60):\n\u2022 Apr 2020: 1,950.4k \u2192 Apr 2021: 2,816.4k = +866k (46% of PBS gain of 1,880k)\n\u2022 Core PBS (USPBS \u2212 TEMPHELPS) Apr 2020\u2192Apr 2021: +1,014k\n\u2022 Temp-help share of PBS: 13.4% at Feb 2020 peak (2,888.1/21,483); 10.1% at Apr 2020 trough (1,950.4/19,223)\n\nL&H 2019 TREND (corrected):\n\u2022 Jan 2019 = 16,488k; Dec 2019 = 16,805k \u2192 +28.8k/month (not 25k)\n\u2022 Counterfactual Apr 2021 = 16,889 + 14\u00d728.8 \u2248 17,292k\n\u2022 L&H actual Apr 2021 = 13,568k \u2192 3,724k below trend (i.e., 100% of L&H's \"recovery gain\" is mean-reversion; sector still well short of trend)\n\nLATE-CYCLE CONTEXT (corrected):\n\u2022 TEMPHELPS peak: Mar 2022 = 3,161.4k\n\u2022 Aug 2022 = 3,080.8 \u2192 Sep 2022 = 3,081.6 (+0.8k uptick BREAKS streak)\n\u2022 Uninterrupted decline: Oct 2022 (3,070.5) \u2192 Dec 2023 (2,685.8) = 15 consecutive monthly declines (not 21)\n\u2022 PBS Jan\u2013May 2023: plateau in 22,791\u201322,850 range (59k spread, 0.26%); May 2023 = 22,850 is technical high\n\u2022 PBS Jun\u2013Dec 2023: monotonic decline 22,826 \u2192 22,643 = \u2212207k (\u22120.9%) over 7 months\n\nCOMPLETED RECOVERY TIMING:\n\u2022 PBS surpassed Feb 2020 peak (21,483k) by ~Aug 2021\n\u2022 L&H had not regained its Feb 2020 peak (16,889k) by Dec 2023 (still below)",
+      "rationale": "The research question has two defensible answers depending on metric, and an intellectually honest response must present both:\n\n(1) ABSOLUTE/HEADLINE METRIC \u2014 L&H wins decisively. It added 2.58\u00d7 more jobs than PBS in the 12-month window (+4,849k vs +1,880k), accounting for roughly 34% of total nonfarm payroll recovery vs. PBS's ~13%. By any \"who contributed more jobs to the recovery\" framing, L&H led.\n\n(2) RECOVERY COMPLETENESS \u2014 PBS wins, but with material caveats. PBS recovered 83% of lost jobs in 12 months vs. L&H's 59%, and crossed its pre-pandemic peak by Aug 2021. L&H still had not crossed its Feb 2020 peak by Dec 2023. However:\n  (a) Temp-help, a mechanically leading and volatile subsector representing only ~10% of PBS at the Apr 2020 trough, produced 46% of the PBS recovery \u2014 meaning \"core\" PBS contributed just 1,014k of the 1,880k gain.\n  (b) PBS itself plateaued in early 2023 and was in a 7-month decline by year-end 2023, so the \"completed recovery\" claim is technically true but its durability is questionable.\n\n(3) MEAN-REVERSION CRITIQUE \u2014 Neither sector demonstrates economic \"strength.\" L&H's collapse was so catastrophic (-48.4%) that even 100% of its 12-month recovery (+4,849k) is mean-reversion from an unprecedented demand-shock contraction; the sector remained ~3,724k below pre-pandemic trend (using corrected 28.8k/month 2019 slope). PBS's collapse was much shallower (-10.5%), making its recovery mechanically less dramatic but reflecting a structurally different recession in that sector \u2014 not superior post-trough leadership.\n\nThe correct framing is therefore: L&H drove the rebound; PBS led on completed recovery; but the question \"which drove recovery more strongly\" is metric-dependent, and the temp-help decomposition + late-cycle context show that PBS's headline lead on completeness is partially mechanical.",
+      "open_questions": [
+        "Whether the 'core PBS' residual (USPBS \u2212 TEMPHELPS) is itself a clean measure or contains other cyclical subsectors (e.g., administrative & waste services) that behave like temp-help.",
+        "Whether L&H's failure to reach trend by 2023 reflects permanent demand destruction (remote work reducing business travel, urban office-lunch demand) versus ongoing labor-supply constraints in the sector.",
+        "Whether the 'who drove recovery' question should weight job-quality metrics (wages, hours, benefits) rather than headcount alone \u2014 PBS jobs pay materially more than L&H jobs on average, which could flip the verdict on dollar-weighted income recovery."
+      ]
+    },
+    "iterations": 4,
+    "cost_estimate_usd": "",
+    "elapsed_seconds": ""
+  },
+  {
+    "question_id": "Q5",
+    "question": "Was M2 money supply growth a leading indicator of the 2021\u20132022 inflation surge? Specifically, did the M2 acceleration in 2020 precede the CPI acceleration by a meaningful and historically consistent lag?",
+    "mode": "loop_n",
+    "difficulty": "hard",
+    "tags": [
+      "monetary_policy",
+      "inflation",
+      "money_supply",
+      "leading_indicator"
+    ],
+    "scores": {
+      "factual_accuracy": 9,
+      "reasoning_quality": 8,
+      "completeness": 7,
+      "total": 8.0,
+      "explanation": "The agent's core claim matches the reference (16-month lag, 26\u201327% M2 YoY peak, ~9% CPI peak in Jun 2022, 12\u201324 month window consistency) with precise numerical alignment. The answer exceeds the reference by explicitly examining historical counterexamples (2001\u201304, 2009\u201311) and the causality caveat, demonstrating deeper analytical rigor. However, the agent's claim that M2 is 'not a historically reliable leading indicator' goes slightly beyond the reference's narrower scope, and the discussion of 1976\u201380 as a 36+ month lag somewhat weakens rather than strengthens confidence in the monetarist mechanism. Minor: the agent claims 'medium' confidence while providing strong quantitative support, which slightly mismatches self-assessed certainty to evidence density."
+    },
+    "final_answer": {
+      "claim": "The 2020 M2 surge did precede the 2021\u20132022 CPI surge by roughly 16 months when measured as YoY-growth-rate peak (Feb 2021) to YoY-CPI peak (Jun 2022), broadly consistent with monetarist 12\u201324 month transmission lags. However, the historical record outside the 1970s and 2020s is weak \u2014 comparable proportional M2 accelerations in 2001\u20132003 and 2009\u20132011 did NOT produce inflation surges. M2 was therefore a useful coincident warning signal in 2020\u201322, but it is not a historically reliable leading indicator, and the 2020 M2 surge is better understood as a co-symptom of the same fiscal-monetary shock that drove inflation rather than an autonomous cause.",
+      "confidence": "medium",
+      "evidence_summary": "CONCEPT \u2014 using YoY GROWTH RATES throughout (not levels):\n\nM2 in 2020\u201322 (FRED M2SL):\n- Feb 2020: $15,493B \u2192 Feb 2021: $19,641.8B = +26.8% YoY (YoY GROWTH-RATE peak)\n- M2 LEVEL peak: March 2022 at $21,786.8B (then declined)\n- CPI YoY peak: June 2022, 296.3/271.7 = 9.06%\n- Lag from M2 growth-rate peak (Feb 2021) \u2192 CPI YoY peak (Jun 2022) = ~16 months\n- Lag from M2 LEVEL peak (Mar 2022) \u2192 CPI peak (Jun 2022) = ~3 months (trivially short \u2014 confirms the meaningful comparison must use growth rates)\n\n1982\u201386 COUNTEREXAMPLE (correcting prior error): M2 grew ~12% YoY in 1982\u201383, but CPI YoY disinflation continued. From FRED CPIAUCSL:\n- April 1986: 108.7/107.0 = 1.59% YoY\n- December 1986: 110.8/109.5 = 1.19% YoY (the actual 1986 trough)\n- Prior write-up's \"~1%\" was inaccurate; true 1986 trough is ~1.2% (Dec). Critic's \"~1.6%\" applies to April. Either way, the magnitude is corrected: inflation fell to ~1.2\u20131.6% despite a major M2 acceleration.\n\n1976\u201380 EPISODE (reclassified): M2 growth accelerated in 1976\u201377; CPI YoY peaked at 14.8% in March 1980. Lag of ~36+ months EXCEEDS the canonical 12\u201324 month window. This is now classified as a LONGER-LAG / borderline case, not \"clean\" consistency. (Oil shocks complicate attribution.)\n\n2001\u20132004 COUNTEREXAMPLE (quantified): \n- M2 YoY: Dec 2000\u2192Dec 2001 = +10.4%; 2001\u21922002 = +6.2%; 2002\u21922003 = +5.1%\n- CPI YoY response: 2001 = 1.6%; 2002 = 2.5%; 2003 = 2.0%\n- Conclusion: M2 grew at 5\u201310% YoY for 3+ years with CPI stuck near 2%. No pass-through.\n\n2009\u20132011 COUNTEREXAMPLE (quantified):\n- M2 YoY Aug 2011: 9,531/8,687.9 = +9.7%; Jul 2011: +8.2%\n- CPI YoY through mid-2010: Jun 2010 = +1.1% (post-GFC trough). Some 2011 CPI uptick (Aug 2011 = 3.8%) but driven by oil/commodities, not sustained.\n- Conclusion: ~6\u201310% M2 growth in 2009\u201311 produced no durable inflation; CPI fell to ~1% in 2010 even as M2 expanded.\n\nCAUSALITY CAVEAT (now central, not buried): The 2020 M2 surge was mechanically the accounting consequence of (a) Fed QE creating reserves that banks held as deposits and (b) Treasury fiscal transfers (CARES Act, ARP) deposited into household accounts. M2 did not \"cause\" inflation autonomously; M2 and CPI both responded with different lags to the same underlying fiscal-monetary impulse. Treating M2 as an exogenous leading indicator is therefore partly tautological in this episode.",
+      "rationale": "Critic point 1 (1986 CPI floor): Corrected \u2014 the 1986 YoY CPI minimum is ~1.2% in December 1986 (110.8/109.5) or ~1.6% in April; not \"1%\" as previously claimed. Direction of argument (disinflation despite M2 surge) preserved, magnitude corrected.\n\nCritic point 2 (1976\u201377 lag framing): Acknowledged \u2014 the M2 acceleration began in 1976\u201377 and CPI didn't peak until March 1980 (14.8%), implying a 36+ month lag that exceeds the stated 12\u201324 month canonical window. This episode is now reclassified as a longer-lag/borderline case rather than \"clean\" consistency. Only the 2020\u21922022 case falls cleanly within the 12\u201324 month window.\n\nCritic point 3 (level vs YoY): Made explicit. The 16-month lag is between M2 YoY-growth-rate peak (Feb 2021) and CPI YoY peak (Jun 2022). Using M2 LEVEL peak (Mar 2022) yields only a ~3-month lag, which is empirically meaningless because CPI was already at 8%+ for months. The monetarist transmission story requires the growth-rate concept, and this is now explicit.\n\nCritic point 4 (causality/tautology): Moved from open questions to the body of the claim. The M2 surge in 2020 was a mechanical byproduct of QE + fiscal transfers, not an independent monetary impulse. The leading-indicator interpretation is therefore weakened \u2014 M2 and CPI shared a common cause. This downgrades confidence from \"high\" to \"medium.\"\n\nCritic point 5 (1990s\u20132000s quantification): Specifics added. 2001\u20132003 M2 grew 5\u201310% YoY with CPI stuck at 1.6\u20132.5%. 2009\u20132011 M2 grew 6\u201310% YoY with CPI hitting a trough of 1.1% in mid-2010. These are proportional accelerations comparable to (though smaller than) 2020 and produced no inflation pass-through \u2014 making the historical case against M2-as-leading-indicator concrete rather than vague.\n\nNet verdict: The 2020\u201322 episode is consistent with the monetarist lag story, but the broader historical record (1982\u201386, 2001\u201303, 2009\u201311) shows that M2 growth in the 5\u201310% range routinely fails to predict inflation. The 2020 episode worked only because the M2 shock was extreme (+26.8% YoY, multiple standard deviations beyond postwar norms) AND coincided with an enormous fiscal transfer + supply shock. Confidence is medium, not high, because the causality is confounded.",
+      "open_questions": [
+        "Can a structural VAR or instrumental-variables approach separate the autonomous M2 impulse from the fiscal-transfer impulse in 2020\u201322?",
+        "Would using M2 velocity (M2V) or 'excess M2' relative to GDP/trend produce a more historically consistent leading-indicator signal than raw M2 growth?",
+        "How much of the 2020\u201322 CPI surge is attributable to supply-side shocks (energy, supply chains, Russia/Ukraine) vs. demand fueled by M2/fiscal transfers? Most decompositions (e.g., SF Fed) put roughly half on each, which further weakens the pure-monetarist read.",
+        "Why did 2009\u201311 QE-driven M2 expansion fail to generate inflation while 2020\u201322 succeeded? Likely answer: 2020 included direct household transfers (boosting velocity), while 2009 QE stayed parked as bank reserves \u2014 but this means the 'M2 leading indicator' is really a 'fiscal-transfers leading indicator' in disguise."
+      ]
+    },
+    "iterations": 2,
+    "cost_estimate_usd": "",
+    "elapsed_seconds": ""
+  },
+  {
+    "question_id": "Q6",
+    "question": "Did the unemployment rate lead or lag real GDP growth during the 2008\u20132009 Great Recession, and by approximately how many quarters?",
+    "mode": "loop_n",
+    "difficulty": "easy",
+    "tags": [
+      "recession",
+      "unemployment",
+      "gdp",
+      "leading_lagging_indicators"
+    ],
+    "scores": {
+      "factual_accuracy": 9,
+      "reasoning_quality": 9,
+      "completeness": 10,
+      "total": 9.33,
+      "explanation": "The agent answer is factually accurate and well-supported by extensive quantitative evidence (GDPC1, PAYEMS, UNRATE, U6RATE series with precise monthly/quarterly values). The core finding\u2014unemployment lagged GDP by 1\u20132 quarters, with U-3 peaking at 10.0% in Oct 2009, roughly 4 months after the 2009Q2 GDP trough\u2014matches the reference answer exactly. The agent goes further by transparently addressing methodological sensitivity (quarterly-to-monthly alignment), documenting the extended plateau of elevated unemployment (Sep 2009\u2013Apr 2010), and providing broader context (NBER Dec 2007 peak, PAYEMS behavior). Minor deduction: the answer is dense and could prioritize the core 1\u20132 quarter lag claim more prominently upfront, though all key evidence is present and accurate."
+    },
+    "final_answer": {
+      "claim": "Labor-market indicators LAGGED real GDP at the Great Recession's trough. The unemployment rate (U-3) peaked at 10.0% in Oct 2009 \u2014 roughly 1\u20132 quarters after the GDPC1 trough in 2009Q2 \u2014 though U-3 stayed within 0.2 ppt of its peak through Apr 2010, making the lag a range (1\u20133 quarters) rather than a single point. Payroll employment (PAYEMS) reached its precise minimum in Feb 2010 but was on a near-flat plateau from Nov 2009 onward, implying a lag of roughly 2\u20133 quarters depending on whether the plateau onset or precise minimum is used. At the cycle peak, payrolls turned essentially coincidently with the NBER Dec 2007 peak (within ~1 month), while GDP did not formally peak until 2008Q2 \u2014 a known anomaly driven by the 2008 stimulus/export surge that NBER explicitly discounted.",
+      "confidence": "high",
+      "evidence_summary": "REAL GDP (GDPC1, Chained 2017$ SAAR, billions): 2007Q4=16,915.19; 2008Q1=16,843.00; 2008Q2=16,943.29 (cycle local max); 2008Q3=16,854.30; 2008Q4=16,485.35; 2009Q1=16,298.26; 2009Q2=16,269.15 (TROUGH); 2009Q3=16,326.28; 2009Q4=16,502.75.\n\nPAYEMS (thousands): peak region \u2014 Dec 2007=138,395; Jan 2008=138,391 (\u20134k, ~0.003% of total, effectively tied); Feb 2008=138,329; Apr 2008=138,040 (clearer decline). Trough plateau \u2014 Oct 2009=130,061; Nov 2009=130,057; Dec 2009=129,808; Jan 2010=129,802; Feb 2010=129,706 (precise minimum); Mar 2010=129,866; Apr 2010=130,120. Range from Nov 2009 to Feb 2010 = 351k over 4 months (~0.27% of series), a genuine plateau.\n\nUNRATE: peak region \u2014 Sep 2009=9.8; Oct 2009=10.0 (unique maximum); Nov 2009=9.9; Dec 2009=9.9; Jan 2010=9.8; Feb 2010=9.8; Mar 2010=9.9; Apr 2010=9.9; May 2010=9.6. The 9.8\u201310.0% band persists 7 months (Sep 2009\u2013Apr 2010); 10.0% is unique but the \"near-peak\" plateau spans roughly Oct 2009 through Apr 2010.\n\nU6RATE: Oct 2009=17.1; Nov 2009=17.1; Dec 2009=17.2 (first 17.2 reading); Jan 2010=16.6 (dip); Feb 2010=17.0; Mar 2010=17.1; Apr 2010=17.2 (tied maximum); May 2010=16.7; then oscillates 16.4\u201316.9 through Dec 2010 \u2014 no clean monotonic decline.\n\nNBER cycle peak: Dec 2007. NBER trough: Jun 2009. GDPC1 trough: 2009Q2 (the quarter spans Apr\u2013Jun 2009; quarterly observations are dated to quarter start in FRED).",
+      "rationale": "METHODOLOGICAL CHOICE (flagged explicitly): For quarterly-to-monthly lag calculations I use the END of the trough quarter (Jun 2009) as the GDP trough reference, because (a) it aligns with the NBER Jun 2009 monthly trough and (b) GDPC1 values are recorded at quarter-start in FRED but represent activity averaged over the quarter. Alternative anchors yield: Apr 2009 (quarter start) \u2192 adds ~2 months to all lags; mid-quarter (May 2009) \u2192 adds ~1 month. I report ranges to make this sensitivity transparent.\n\n(1) UNRATE lag at trough: Using Jun 2009 reference, U-3 peak in Oct 2009 = 4 months (~1.3 quarters). Using Apr 2009 reference, lag = 6 months (~2 quarters). Importantly, U-3 stayed at 9.8\u201310.0% (within 0.2 ppt of the 10.0% peak) from Sep 2009 through Apr 2010 \u2014 a 7-month elevated band including a near-re-peak of 9.9% in Mar\u2013Apr 2010. So while 10.0% in Oct 2009 is the unique maximum, the effective \"peak region\" runs ~Sep 2009\u2013Apr 2010. Range: 1\u20133 quarters lag.\n\n(2) PAYEMS lag at trough: The precise minimum is Feb 2010 (129,706), 8 months (~2.7 quarters) after Jun 2009. However, PAYEMS sat in a 351k plateau from Nov 2009 (130,057) through Feb 2010 \u2014 only 0.27% spread. If the plateau ONSET (Nov 2009) is used as effective trough, lag = 5 months (~1.7 quarters). If precise minimum (Feb 2010), lag = 8 months (~2.7 quarters). Using the Apr 2009 GDP reference instead, these become 7 and 10 months. Reasonable range: 2\u20133 quarters.\n\n(3) U6RATE lag at trough: Dual peaks at 17.2% in Dec 2009 AND Apr 2010, with a dip to 16.6% in Jan 2010 in between. Lag = 6\u201310 months (~2\u20133 quarters) depending on which peak is selected. Critically, U-6 does NOT cleanly decline after Apr 2010 \u2014 it oscillates 16.4\u201316.9 through Dec 2010, so trough-dating is genuinely ambiguous and the lag estimate has wider uncertainty than for U-3.\n\n(4) Peak-side timing: PAYEMS Dec 2007 (138,395) and Jan 2008 (138,391) are within 4k of each other \u2014 essentially tied \u2014 and the series was clearly declining by Apr 2008. This near-coincidence with the NBER Dec 2007 peak is an empirical observation; PAYEMS is not formally designated \"coincident\" by NBER, but is one of six indicators NBER uses in dating cycles, which is why the alignment is unsurprising. Real GDP did not peak until 2008Q2 (16,943.29 > 16,915.19 in 2007Q4 by $28B), reflecting the 2008 stimulus-check PCE surge and export boom \u2014 an anomaly NBER explicitly looked past. Relative to the NBER peak, payrolls were essentially coincident (\u00b11 month); relative to the GDP peak, payrolls \"led\" by ~2 quarters, but this is a framing artifact of the GDP anomaly, not an economic finding.\n\nCONCLUSION: Using the standard NBER cycle reference, labor markets behaved as classic lagging indicators at the recession's end: U-3 lagged by ~1\u20133 quarters (Oct 2009 peak, with elevated plateau through Apr 2010); PAYEMS lagged by ~2\u20133 quarters (Nov 2009 plateau onset to Feb 2010 precise minimum); U-6 lagged by ~2\u20133 quarters with substantial dating ambiguity (dual 17.2% peaks Dec 2009/Apr 2010 plus oscillation through 2010). At the peak, payrolls were near-coincident with the NBER Dec 2007 reference; the apparent \"lead\" over GDP is a consequence of the well-known 2008Q2 GDP anomaly rather than a true business-cycle lead.",
+      "open_questions": [
+        "Whether to consider PAYEMS as having effectively troughed in Nov 2009 (plateau onset) versus Feb 2010 (precise minimum) is a judgment call that swings the lag estimate by ~3 months; the data support either characterization.",
+        "U-6's continued oscillation through 2010 (16.4\u201316.9%) means its 'trough lag' is the least well-defined of the three labor metrics \u2014 the Dec 2009 vs. Apr 2010 dual peak plus the subsequent volatility makes any single-point lag estimate fragile.",
+        "Quarterly GDP data cannot resolve the precise within-quarter timing of the 2009Q2 trough; using monthly NBER reference (Jun 2009) is the cleanest convention but introduces a small methodological choice.",
+        "Whether the 2008Q2 GDP local maximum should be considered a 'true' GDP peak or an anomaly is partly a definitional question; this analysis treats it as anomalous following NBER's own reasoning, but a purely mechanical GDP-based lead/lag analysis would yield different headline numbers."
+      ]
+    },
+    "iterations": 4,
+    "cost_estimate_usd": "",
+    "elapsed_seconds": ""
+  }
+]
