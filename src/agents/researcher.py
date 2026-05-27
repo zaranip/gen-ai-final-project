@@ -18,6 +18,10 @@ real FRED data and web sources.
 Pull the relevant series, look at actual numbers, and build an argument from evidence — \
 not from priors. Cite specific values and dates. If you're uncertain, say so rather than \
 papering over it. When you have enough to make a defensible claim, call `submit_research_answer`.
+
+If you receive critic feedback at the start of this task, you are in revision mode. \
+Don't restart the full investigation — focus specifically on the weaknesses flagged. \
+Pull only the data needed to address them, then resubmit with the corrections.
 """
 
 TOOLS = [
