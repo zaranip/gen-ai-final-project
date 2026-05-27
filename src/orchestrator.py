@@ -16,7 +16,7 @@ Usage:
 import json
 import logging
 import time
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Literal, Optional
 
@@ -65,7 +65,7 @@ def run(
         "mode": mode,
         "researcher_model": researcher_model,
         "critic_model": critic_model,
-        "timestamp": datetime.utcnow().isoformat(),
+        "timestamp": datetime.now(timezone.utc).isoformat(),
         "iterations": [],
     }
 
@@ -199,7 +199,7 @@ def _estimate_cost(
 
 
 def _save_log(run_log: dict) -> None:
-    fname = LOG_DIR / f"run_{datetime.utcnow().strftime('%Y%m%d_%H%M%S')}.json"
+    fname = LOG_DIR / f"run_{datetime.now(timezone.utc).strftime('%Y%m%d_%H%M%S')}.json"
     try:
         with open(fname, "w") as f:
             json.dump(run_log, f, indent=2, default=str)
