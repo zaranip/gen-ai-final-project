@@ -48,4 +48,3 @@ python -m scripts.run_benchmark --modes no_loop loop_1 --questions Q1 --max-iter
 ```
 
 Then inspect `outputs/benchmark_runs/<run_id>/summary.md` before launching the full benchmark.
-

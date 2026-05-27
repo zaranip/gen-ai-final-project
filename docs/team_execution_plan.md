@@ -61,4 +61,3 @@ This pass focuses on the work that can be implemented immediately without waitin
 - Identify at least one case where self-critique worsens the answer.
 - Convert the generated result digest into the final audience-facing artifact.
 - Prepare each member's defense talking points from their owned component.
-

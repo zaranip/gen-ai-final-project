@@ -25,4 +25,3 @@ memory_store/*.json
 
 outputs/*
 !outputs/.gitkeep
-
