@@ -102,14 +102,10 @@ def run(
         final_critique = critique["critique"]
 
         if verdict != "accept":
-            # One revision pass: researcher sees both the specific flaws and
-            # the critic's suggested next steps. Final answer is the revision;
-            # no second critic pass (that's loop_n's job).
+            # One revision pass keyed off the critic's specific weaknesses.
+            # Final answer is the revision; no second critic pass (that's loop_n).
             weaknesses = critique["critique"].get("weaknesses", [])
-            suggestions = critique["critique"].get("suggested_investigations", [])
             critic_feedback = "\n".join(weaknesses)
-            if suggestions:
-                critic_feedback += "\n\nSuggested follow-up:\n" + "\n".join(suggestions)
 
             log.info("[loop_1] Revision pass")
             revised = researcher.investigate(
