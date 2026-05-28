@@ -12,7 +12,7 @@
 
 This project evaluates whether augmenting a macroeconomic research agent with a self-critique loop and a persistent memory measurably improves its answers to open-ended, FRED-backed questions.
 
-We constructed a small benchmark to test this directly. The finding is qualified: the full `loop_n` configuration achieved a marginally higher mean score than the single-shot baseline, but the improvement is negligible relative to its additional cost and latency.
+We constructed a small benchmark to test this directly. We find the full `loop_n` configuration achieved a marginally higher mean score than the single-shot baseline, but the improvement is negligible relative to its additional cost and latency.
 
 ## Method
 
