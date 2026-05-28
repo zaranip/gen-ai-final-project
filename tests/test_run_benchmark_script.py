@@ -6,6 +6,7 @@ from pathlib import Path
 
 from scripts.run_benchmark import (
     build_summary_rows,
+    normalize_answer,
     write_json,
     write_markdown_summary,
     write_summary_csv,
@@ -62,6 +63,23 @@ class BenchmarkRunnerOutputTests(unittest.TestCase):
         self.assertEqual(rows[0]["tags"], "inflation;recession")
         self.assertEqual(rows[0]["total"], 6.0)
         self.assertEqual(rows[1]["claim"], "Yes, with caveats.")
+
+    def test_normalize_answer_repairs_embedded_tool_fields(self):
+        answer = normalize_answer(
+            {
+                "claim": (
+                    "M2 growth led CPI.</claim>\n"
+                    '<parameter name="evidence_summary">M2 peaked first.</parameter>\n'
+                    "<rationale>The lead depends on onset definitions.</rationale>"
+                )
+            }
+        )
+
+        self.assertEqual(answer["claim"], "M2 growth led CPI.")
+        self.assertEqual(answer["evidence_summary"], "M2 peaked first.")
+        self.assertEqual(
+            answer["rationale"], "The lead depends on onset definitions."
+        )
 
     def test_writers_create_json_csv_and_markdown_artifacts(self):
         rows = build_summary_rows(self.sample_results())

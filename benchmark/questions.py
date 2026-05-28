@@ -39,17 +39,19 @@ BENCHMARK: List[BenchmarkQuestion] = [
         ),
         fred_series=["PCEPILFE", "FEDFUNDS", "GDPC1", "USREC"],
         reference_answer=(
-            "Yes. Core PCE fell from a peak of ~5.6% (Feb 2023) toward 2.5–3% by "
-            "late 2023 while real GDP grew in every quarter of 2022–2023 and no NBER "
-            "recession was declared. By conventional definition this is a soft landing, "
-            "though inflation remained above the 2% target at year-end 2023."
+            "Yes, with caveats. Core PCE fell from a peak of ~5.6% YoY in Sep 2022 "
+            "to ~3.1% by Dec 2023, real GDP grew in every quarter of 2023, and no "
+            "NBER recession was declared during 2022–2023. By conventional definition "
+            "this is a soft landing, though there was a negative GDP quarter in early "
+            "2022 and inflation remained above the 2% target at year-end 2023."
         ),
         reference_rationale=(
             "FEDFUNDS rose from 0.08% (Feb 2022) to 5.33% (Aug 2023), a 525 bps increase. "
-            "PCEPILFE peaked at ~5.6% YoY in Feb 2023 and declined to ~2.7% by Dec 2023. "
-            "GDPC1 shows positive real GDP growth in all four quarters of 2023. "
-            "USREC carries no recession flag for this period. The combination of falling "
-            "inflation and sustained positive growth satisfies the soft-landing criterion."
+            "PCEPILFE YoY peaked at ~5.6% in Sep 2022 and declined to ~3.1% by Dec 2023. "
+            "GDPC1 annualized QoQ growth was negative in 2022 Q1 but positive in all four "
+            "quarters of 2023. USREC carries no recession flag for this period. The "
+            "combination of falling inflation, no NBER recession, and sustained 2023 growth "
+            "satisfies the soft-landing criterion."
         ),
         difficulty="medium",
         tags=["monetary_policy", "inflation", "recession"],
@@ -65,17 +67,19 @@ BENCHMARK: List[BenchmarkQuestion] = [
         fred_series=["T10Y2Y", "USREC"],
         reference_answer=(
             "Yes. The 2022–2023 inversion was both deeper and longer. It began in "
-            "July 2022, exceeded –100 bps at its trough, and persisted for over 24 months. "
-            "The 2006–2007 inversion lasted roughly 12 months and was shallower (–50 to –70 bps). "
-            "Notably, the 2022–2023 inversion did not produce a declared recession through "
-            "end of 2023, challenging its reliability as a leading indicator."
+            "July 2022, exceeded –100 bps at its trough, and was still inverted at the end "
+            "of 2023 before ultimately running into August 2024. The longest continuous "
+            "2006–2007 inversion was much shorter and shallower, with a trough around "
+            "–20 bps. Notably, the 2022–2023 inversion did not produce a declared "
+            "recession through end of 2023, challenging its reliability as a leading indicator."
         ),
         reference_rationale=(
-            "T10Y2Y first turned negative in July 2022 and remained inverted through at "
-            "least late 2024. The prior inversion ran from approximately January 2006 to "
-            "early 2007 (~12 months). Comparing negative-reading runs confirms 2022–2023 "
-            "is the more persistent post-2000 inversion. USREC shows no recession flag "
-            "through end of 2023 despite the prolonged inversion."
+            "T10Y2Y's longest 2022–2024 negative streak ran from July 6, 2022 to Aug 26, "
+            "2024 (~783 calendar days), with a trough of about –1.08 pp in July 2023. "
+            "By Dec 2023 it had already been inverted for roughly 18 months. The longest "
+            "continuous 2006–2007 negative streak ran from Aug 17, 2006 to Mar 20, 2007 "
+            "(~216 calendar days), with a trough of about –0.19 pp. USREC shows no "
+            "recession flag through end of 2023 despite the prolonged inversion."
         ),
         difficulty="easy",
         tags=["yield_curve", "recession_prediction", "monetary_policy"],
@@ -90,16 +94,16 @@ BENCHMARK: List[BenchmarkQuestion] = [
         fred_series=["AHETPI", "CPIAUCSL"],
         reference_answer=(
             "Real average hourly earnings declined materially. Despite nominal wage "
-            "growth of ~5–6% YoY, CPI inflation running at 7–9% eroded purchasing power. "
-            "At the peak of inflation (June 2022), real wages were falling at approximately "
-            "–3 to –4% YoY — the sharpest sustained real wage decline since the early 1980s. "
-            "The decline reversed only as inflation cooled in 2023."
+            "growth of roughly 6–7% YoY, CPI inflation near 9% eroded purchasing power. "
+            "At the peak of inflation in June 2022, CPI-deflated AHETPI was falling about "
+            "2.4% YoY, and the real wage index had fallen roughly 2% from Dec 2021 to "
+            "Jun 2022. The decline reversed only as inflation cooled in 2023."
         ),
         reference_rationale=(
-            "AHETPI (nominal avg hourly earnings) grew ~5–6% YoY through 2021–2022. "
-            "CPIAUCSL peaked at 9.1% YoY in June 2022. "
-            "Real wage growth ≈ 5.5% – 9.0% = –3.5% at the peak. "
-            "Workers lost roughly 3–4% of real purchasing power at the height of inflation."
+            "AHETPI grew ~6.6% YoY in June 2022 while CPIAUCSL peaked at ~9.0% YoY. "
+            "Real wage growth ≈ 6.6% – 9.0% = –2.4% at the CPI peak. The real AHETPI/CPI "
+            "index declined from ~9.53 in Dec 2021 to ~9.33 in Jun 2022, showing a clear "
+            "loss of purchasing power during the inflation surge."
         ),
         difficulty="easy",
         tags=["wages", "inflation", "labor_market"],
@@ -115,16 +119,16 @@ BENCHMARK: List[BenchmarkQuestion] = [
         fred_series=["CEU7000000001", "CEU6000000001", "PAYEMS"],
         reference_answer=(
             "Leisure & hospitality led on absolute job gains. From the April 2020 trough "
-            "to April 2021, the sector recovered approximately 5.5 million jobs vs. roughly "
-            "2.5 million for professional & business services. However, professional services "
-            "recovered a larger share of its own losses (~74%) than leisure & hospitality "
-            "(~62%), because leisure suffered far deeper initial cuts."
+            "to April 2021, the sector recovered approximately 4.8 million jobs vs. roughly "
+            "1.9 million for professional & business services. However, professional services "
+            "recovered a larger share of its own Feb-Apr 2020 losses (~91%) than leisure & "
+            "hospitality (~63%), because leisure suffered far deeper initial cuts."
         ),
         reference_rationale=(
-            "CEU7000000001 fell from ~16.9M (Feb 2020) to ~8.0M (Apr 2020), losing ~8.9M. "
-            "By Apr 2021 it recovered to ~13.5M (+5.5M, ~62% of losses). "
-            "CEU6000000001 fell from ~22.4M to ~19.0M (–3.4M). "
-            "By Apr 2021 it recovered to ~21.5M (+2.5M, ~74% of losses). "
+            "CEU7000000001 fell from ~16.3M (Feb 2020) to ~8.6M (Apr 2020), losing ~7.7M. "
+            "By Apr 2021 it recovered to ~13.4M (+4.8M, ~63% of losses). "
+            "CEU6000000001 fell from ~21.2M to ~19.2M (–2.1M). "
+            "By Apr 2021 it recovered to ~21.0M (+1.9M, ~91% of losses). "
             "Absolute gains favor leisure; proportional recovery favors professional services."
         ),
         difficulty="medium",

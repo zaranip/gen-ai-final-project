@@ -9,6 +9,7 @@ import argparse
 import csv
 import json
 import os
+import re
 from collections import defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
@@ -38,7 +39,7 @@ def build_summary_rows(results: Iterable[dict]) -> list[dict]:
     rows = []
     for item in results:
         scores = item.get("scores") or {}
-        answer = item.get("final_answer") or {}
+        answer = normalize_answer(item.get("final_answer") or {})
         rows.append(
             {
                 "question_id": item.get("question_id", ""),
@@ -57,6 +58,26 @@ def build_summary_rows(results: Iterable[dict]) -> list[dict]:
             }
         )
     return rows
+
+
+def normalize_answer(answer: dict) -> dict:
+    """Repair occasional XML-like field leakage in structured tool output."""
+    out = dict(answer)
+    claim = str(out.get("claim", "") or "")
+    if "</claim>" not in claim:
+        return out
+
+    out["claim"] = _clean_text(claim.split("</claim>", 1)[0])
+    for field in ["evidence_summary", "rationale", "confidence"]:
+        if not out.get(field):
+            extracted = _extract_embedded_field(claim, field)
+            if extracted:
+                out[field] = extracted
+    if not out.get("open_questions"):
+        extracted = _extract_embedded_field(claim, "open_questions")
+        if extracted:
+            out["open_questions"] = [extracted]
+    return out
 
 
 def write_json(path: Path, payload) -> None:
@@ -173,6 +194,7 @@ def run_experiment(
                 memory_dir=mode_memory_dir,
             )
             scores = evaluate(question, result["final_answer"])
+            final_answer = normalize_answer(result["final_answer"])
             results.append(
                 {
                     "question_id": question.id,
@@ -181,7 +203,7 @@ def run_experiment(
                     "tags": question.tags,
                     "mode": mode,
                     "scores": scores,
-                    "final_answer": result["final_answer"],
+                    "final_answer": final_answer,
                     "final_critique": result["final_critique"],
                     "iterations": result["iterations"],
                     "cost_estimate_usd": result["cost_estimate_usd"],
@@ -293,6 +315,23 @@ def _mean(values: Iterable[float]) -> float:
 
 def _escape_table_text(value: str) -> str:
     return value.replace("|", "\\|").replace("\n", " ")
+
+
+def _extract_embedded_field(text: str, field: str) -> str:
+    patterns = [
+        rf"<{field}>(.*?)</{field}>",
+        rf'<parameter name="{field}">(.*?)</{field}>',
+        rf'<parameter name="{field}">(.*?)</parameter>',
+    ]
+    for pattern in patterns:
+        match = re.search(pattern, text, flags=re.DOTALL)
+        if match:
+            return _clean_text(match.group(1))
+    return ""
+
+
+def _clean_text(value: str) -> str:
+    return re.sub(r"\s+", " ", value).strip()
 
 
 if __name__ == "__main__":

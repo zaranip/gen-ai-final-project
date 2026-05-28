@@ -93,6 +93,14 @@ python -m compileall src benchmark scripts tests
 
 These tests do not call Anthropic, FRED, or Tavily.
 
+To re-create the primary-data reference audit used for the final benchmark:
+
+```bash
+python -m scripts.verify_references
+```
+
+The audit report is written to `reports/reference_answer_verification.md`.
+
 ---
 
 ## Running the Full Benchmark
@@ -123,12 +131,24 @@ Each run writes a timestamped folder under `outputs/benchmark_runs/`:
 | `summary.csv` | Flat table for charts and final report tables |
 | `summary.md` | Human-readable digest for the audience-facing writeup |
 
+The reported final run is `final_20260528_0340`. Its publishable artifacts are
+mirrored in `outputs/benchmark_runs/consolidated/`, and charts can be rebuilt
+with:
+
+```bash
+python -m scripts.build_charts
+```
+
 ---
 
 ## Cost Notes
 
-- `loop_n` with 4 iterations on all 6 questions costs roughly **$3–8** depending on
-  model usage. Start with `loop_1` or a single question to calibrate.
+- The final 18-cell run cost estimate was **$20.44**:
+  - `no_loop`: $2.94 total, 8.45 average score
+  - `loop_1`: $6.45 total, 8.22 average score
+  - `loop_n`: $11.04 total, 8.56 average score
+- Start with `loop_1` or a single question to calibrate before running the full
+  benchmark again.
 - Cost estimates are logged in each result dict (`cost_estimate_usd`).
 - Paid services used: Anthropic API, FRED API (free), Tavily (optional).
 
@@ -156,17 +176,25 @@ by the Anthropic SDK tool definition.
 Per the assignment rubric, each team member should be ready to explain:
 - Which component they personally built
 - Why this data, this method, this evaluation design
-- At least one case where self-critique made the answer *worse* (required by rubric)
+- At least one case where self-critique made the answer *worse* (Q6 in the final run)
 - What an AI tool would not have produced on its own
 
 Current ownership plan is tracked in `docs/team_execution_plan.md`.
-The final-report handoff structure is in `reports/final_report_handoff.md`.
+The current submission handoff is in `reports/submission_handoff.md`.
 
 ---
 
 ## AI Usage Statement
 
-Claude Code (claude-sonnet-4-6) was used to scaffold this codebase. The benchmark
-questions and reference answers were hand-curated from primary FRED data by the team.
-All agent outputs were verified against actual FRED data before being accepted as
-reference answers. Model outputs were not used as primary evidence.
+Claude Code was used as a development assistant to scaffold and revise code,
+tests, documentation, and report language. The research agent used Anthropic
+models through the API:
+
+- Researcher: `claude-opus-4-7`
+- Critic: `claude-sonnet-4-6`
+- Evaluator: `claude-haiku-4-5-20251001`
+
+Benchmark questions and reference answers were hand-curated by the team and then
+re-verified against primary FRED series in
+`reports/reference_answer_verification.md`. Agent outputs were not used as
+ground-truth reference answers.

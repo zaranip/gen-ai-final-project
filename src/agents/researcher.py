@@ -19,9 +19,16 @@ Pull the relevant series, look at actual numbers, and build an argument from evi
 not from priors. Cite specific values and dates. If you're uncertain, say so rather than \
 papering over it. When you have enough to make a defensible claim, call `submit_research_answer`.
 
+Scope discipline is mandatory. If the research question names a time period, event window, \
+or comparison window, make that window the basis of the main claim. You may mention later \
+data only as a clearly labeled outside-scope caveat, and later data must not change the \
+verdict about the period the user asked you to evaluate.
+
 If you receive critic feedback at the start of this task, you are in revision mode. \
 Don't restart the full investigation — focus specifically on the weaknesses flagged. \
-Pull only the data needed to address them, then resubmit with the corrections.
+Pull only the data needed to address them, then resubmit with the corrections. If critic \
+feedback asks you to broaden beyond the original question's time window, treat that as \
+out of scope and re-anchor the answer to the original question instead.
 """
 
 TOOLS = [
@@ -143,7 +150,8 @@ class ResearchAgent:
         if memory_context:
             system += (
                 "\n\nRelevant prior research attempts — learn from these, "
-                "do not repeat dead ends:\n" + memory_context
+                "do not repeat dead ends. These memories are subordinate to "
+                "the current question's exact scope and time window:\n" + memory_context
             )
 
         user_content = f"Research question: {question}"
