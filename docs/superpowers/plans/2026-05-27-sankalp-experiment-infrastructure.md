@@ -84,7 +84,7 @@ git commit -m "fix: run loop one revision pass"
 - Create: `scripts/run_benchmark.py`
 - Create: `tests/test_run_benchmark_script.py`
 - Modify: `README.md`
-- Create: `reports/final_report_handoff.md`
+- Create: `reports/submission_handoff.md`
 
 - [x] **Step 1: Write failing tests**
 
@@ -116,14 +116,14 @@ Expected: all benchmark script tests pass without external API calls.
 
 - [x] **Step 5: Update documentation**
 
-Document the runner command, output files, and final-report handoff path in `README.md` and `reports/final_report_handoff.md`.
+Document the runner command, output files, and submission handoff path in `README.md` and `reports/submission_handoff.md`.
 
 - [x] **Step 6: Commit**
 
 Run:
 
 ```bash
-git add scripts tests README.md reports/final_report_handoff.md
+git add scripts tests README.md reports/submission_handoff.md
 git commit -m "feat: add reproducible benchmark runner"
 ```
 
