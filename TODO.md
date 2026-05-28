@@ -126,6 +126,10 @@ Wait until `ANTHROPIC_API_KEY` and `FRED_API_KEY` are ready in `.env`.
   "be more thorough" memories do not create scope creep.
 - [ ] Add a small human-grading pass for the six final answers to sanity-check the
   LLM judge.
+- [ ] Replace the single Haiku evaluator with an ensemble of models and/or rubric
+  prompts, then report score variance alongside the mean.
+- [ ] Tune the evaluator prompt from direct human feedback so it rewards valid
+  above-reference nuance without rewarding off-question drift.
 - [ ] Add CI for `python -m unittest discover -v` and `python -m compileall src benchmark scripts tests`.
 - [ ] Try a non-macro or non-FRED mini-benchmark to see whether the small,
   cost-qualified `loop_n` improvement generalizes.

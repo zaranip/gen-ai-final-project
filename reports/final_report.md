@@ -134,6 +134,15 @@ This is the practical failure mode we would emphasize in a defense: critique can
 push an already-good answer toward methodological completeness even when the
 audience needs a sharper answer.
 
+There is also an evaluator caveat here. The `loop_n` Q6 answer answered the main
+question and cited real data, but the Haiku evaluator appeared to reward close
+alignment with the concise reference framing and penalize extra nuance. Our
+rubric says a 10 can exceed the reference in depth, but in practice the judge
+sometimes treated "different emphasis" as a completeness or clarity problem. We
+therefore read Q6 as both an agent-design failure mode and an evaluator-design
+warning: single-model LLM judging can be overly sensitive to reference wording,
+specific benchmark figures, and answer length.
+
 ## Cost And Practicality
 
 The final full run cost estimate was $20.44 total:
@@ -152,7 +161,11 @@ defensible on already-clean timing questions, such as Q6.
 ## Limitations
 
 - **n = 6.** This is a proof-of-concept, not a statistical benchmark.
-- **LLM judge subjectivity.** Scores come from one evaluator prompt and one model.
+- **LLM judge subjectivity.** Scores come from one evaluator prompt and one
+  Haiku model. The Q6 result suggests the judge sometimes penalizes valid nuance
+  or alternative emphasis when it does not mirror the reference answer's exact
+  framing. This makes the reported averages useful directionally, but not a
+  definitive human-quality ranking.
 - **Reference sensitivity.** We found and corrected several reference values, which
   shows why the verification step matters.
 - **Cost sensitivity.** Model pricing and latency change the practicality of loops.
@@ -169,7 +182,15 @@ defensible on already-clean timing questions, such as Q6.
 - Score every iteration so we can see where answer quality peaks before later
   critiques add noise.
 - Separate factual memory from process memory.
-- Add a small human-grading pass for the six final answers.
+- Replace the single Haiku judge with an evaluator ensemble: multiple models
+  and/or rubric variants, summarized with a median or trimmed mean plus score
+  variance.
+- Tune the evaluator prompt against direct human feedback. In particular, add
+  calibration examples where valid above-reference nuance should be rewarded,
+  and examples where extra detail should be penalized only when it changes the
+  question or obscures the answer.
+- Add a small human-grading pass for the six final answers and compare human
+  scores to the LLM ensemble.
 - Try a second domain to test whether this pattern generalizes beyond FRED macro
   questions.
 

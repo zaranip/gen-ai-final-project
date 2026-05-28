@@ -143,6 +143,11 @@ for.
 
 The loop did not hallucinate. It over-explained.
 
+The score also exposes an evaluator issue. The Q6 answer was not simply wrong;
+the single Haiku judge seemed to prefer the concise reference framing and
+penalize valid nuance. That makes Q6 both an agent-design failure case and a
+reminder that LLM-graded benchmark scores need calibration.
+
 ## Cost And Practicality
 
 The final full run cost estimate was $20.44 total:
@@ -162,7 +167,10 @@ ambiguous and extra checking changes answer quality, such as Q5.
 ## Limitations
 
 - **n = 6.** This is a proof-of-concept, not a statistical benchmark.
-- **LLM judge subjectivity.** Scores come from one evaluator prompt and one model.
+- **LLM judge subjectivity.** Scores come from one evaluator prompt and one Haiku
+  model. The Q6 result suggests the judge sometimes penalizes valid nuance or
+  alternative emphasis when it does not mirror the reference answer's exact
+  framing.
 - **Reference sensitivity.** We found and corrected several reference values,
   which is why the primary-data audit matters.
 - **Cost sensitivity.** Model pricing and latency change whether loops are worth
@@ -178,6 +186,10 @@ ambiguous and extra checking changes answer quality, such as Q5.
 - Add a cheap scope-guard judge after critic feedback.
 - Score every iteration so we can see where answer quality peaks.
 - Separate factual memory from process memory.
+- Replace the single judge with an evaluator ensemble across models and rubric
+  variants.
+- Tune the evaluator prompt with direct human feedback, including examples that
+  distinguish useful above-reference nuance from distracting over-explanation.
 - Add a small human-grading pass for the six final answers.
 - Try a second domain to test whether the pattern generalizes beyond FRED macro
   questions.

@@ -25,7 +25,8 @@ or blockers here, not in chat, so the final state is auditable.
   cost-qualified improvement.
 - [ ] Q5 is presented as the strongest improvement case.
 - [ ] Q6 is presented as the required failure case where critique overcomplicated
-  a clean baseline answer.
+  a clean baseline answer, with an explicit caveat that evaluator calibration may
+  have amplified the penalty.
 - [ ] The six benchmark questions, reference verification, model names, costs,
   and AI usage statement are internally consistent.
 - [ ] No stale language remains about missing Q3 results, old negative headline
