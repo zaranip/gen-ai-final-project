@@ -10,41 +10,29 @@
 
 ## The Question
 
-Does adding a self-critique loop and persistent memory make a macroeconomic
-research agent's answers better on open-ended, FRED-backed questions?
+This project evaluates whether augmenting a macroeconomic research agent with a self-critique loop and a persistent memory measurably improves its answers to open-ended, FRED-backed questions.
 
-We built a small benchmark to test that claim directly. The final answer is
-qualified: the full `loop_n` system scored slightly higher than the single-shot
-baseline, but the gain was small relative to the extra cost and latency.
+We constructed a small benchmark to test this directly. The finding is qualified: the full `loop_n` configuration achieved a marginally higher mean score than the single-shot baseline, but the improvement is negligible relative to its additional cost and latency.
 
 ## Method
 
-Three configurations of the same agent system were scored on the same six
-macroeconomic questions:
+Three configurations of the same agent system were evaluated on an identical set of six macroeconomic questions:
 
 | Mode | What it does |
 |---|---|
-| `no_loop` | One researcher pass. No critic, no memory. |
+| `no_loop` | One researcher pass. No critic and no memory. |
 | `loop_1` | Researcher -> critic -> at most one revision pass. No memory across runs. |
 | `loop_n` | Iterative researcher/critic loop, capped at 4 iterations, with persistent memory across the benchmark run. |
 
-The researcher uses `claude-opus-4-7`. The critic uses `claude-sonnet-4-6` so
-the review step is not the exact same model re-reading its own work. The
-evaluator uses `claude-haiku-4-5-20251001` against hand-curated reference
-answers.
+The researcher uses `claude-opus-4-7`. The critic uses a distinct model, `claude-sonnet-4-6`, so that the review step does not reduce to a single model re-evaluating its own output and converging on agreement. Scoring is performed by `claude-haiku-4-5-20251001` against hand-curated reference answers.
 
-After an initial smoke run exposed scope drift on Q1, we added scope-discipline
-instructions to both the researcher and critic: if a question names a time
-window, the agent must answer that window first and treat later data only as a
-labeled caveat.
+An initial smoke run revealed scope drift on Q1. In response, we added scope-discipline instructions to both the researcher and critic prompts: when a question specifies a time window, the agent must answer that window first and treat subsequent data only as an explicitly labeled caveat, rather than as grounds to redefine the question.
 
 ## Reference Verification
 
-Before the final run, we re-verified all six benchmark reference answers against
-primary FRED data. The audit trail is in
-`reports/reference_answer_verification.md`.
+Prior to the final run, all six reference answers were re-verified against primary FRED data. The complete audit trail is recorded in `reports/reference_answer_verification.md`.
 
-That audit corrected several benchmark references:
+The audit corrected several references:
 
 - Q1 now acknowledges the negative 2022 Q1 GDP quarter while preserving the
   no-NBER-recession soft-landing conclusion.
@@ -84,10 +72,7 @@ python -m scripts.run_benchmark \
 | `loop_1` | 8.22 | $6.45 | 1.67 |
 | `loop_n` | **8.56** | $11.04 | 2.33 |
 
-`loop_n` won the average score by 0.11 points over baseline, but cost about
-3.8x as much. `loop_1` was worse than baseline on average, which suggests one
-critic pass can add complexity without enough room to recover from a bad
-revision direction.
+`loop_n` achieved the highest mean score, exceeding the baseline by 0.11 points at approximately 3.8x the cost. Notably, `loop_1` scored below the baseline. We attribute this to a single critic pass introducing additional complexity without providing sufficient subsequent iterations to recover from a poorly directed revision.
 
 ### Question-level scores
 
@@ -102,50 +87,30 @@ revision direction.
 
 ## When The Loop Helped: Q5
 
-Q5 asked whether M2 growth led the 2021-2022 CPI surge. The baseline answer was
-good: it identified the 12-16 month lag and correctly cautioned against treating
-M2 as a mechanical rule.
+Q5 asked whether M2 growth led the 2021-2022 CPI surge. The baseline answer was already strong. It identified the 12-16 month lag and appropriately cautioned against interpreting M2 as a mechanical predictor.
 
-`loop_n` improved the answer to 9.00 by forcing cleaner definitions. It separated
-three different timing claims:
+`loop_n` improved the score to 9.00 by enforcing definitional precision, separating three distinct timing claims that the baseline had conflated:
 
 - M2 YoY first jumping above roughly 10% in March 2020 to CPI YoY breaking above
   4% in April 2021: 13 months.
 - M2 YoY peak in February 2021 to CPI YoY peak in June 2022: 16 months.
 - M2 level peak in March 2022 to CPI YoY peak: only about 3 months.
 
-That answer was more precise and more honest about historical reliability than
-the baseline. This is the best case for iterative critique: it improved
-definitions without losing the main question.
+The result is both more precise and more candid about the limited historical reliability of the relationship, tightening the definitions without diverging from the original question. This is the strongest case for iterative critique in this project.
 
 ## When The Loop Hurt: Q6
 
-Q6 is the required failure case. The baseline scored 9.00 with a concise answer:
-real GDP troughed in 2009 Q2, unemployment peaked at 10.0% in October 2009, so
-unemployment lagged GDP by about 1-2 quarters.
+Q6 is the required failure case. The baseline scored 9.00 with a concise answer: real GDP troughed in 2009 Q2 and unemployment peaked at 10.0% in October 2009, indicating that unemployment lagged GDP by approximately 1-2 quarters.
 
-`loop_n` dropped to 8.00. It added correct but distracting nuance about downturn
-timing, NBER monthly peaks versus quarterly GDP peaks, and whether unemployment
-was coincident or slightly leading at recession entry. That nuance is defensible,
-but it obscured the cleaner recovery-side answer the question was really asking
-for. The loop did not hallucinate; it over-explained.
+`loop_n` reduced the score to 8.00 without introducing any factual error. It added correct but extraneous nuance regarding downturn timing, NBER monthly peaks versus quarterly GDP peaks, and whether unemployment was coincident or marginally leading at the onset of the recession. Each point is individually defensible, but collectively they obscured the concise recovery-side answer the question required. The outcome is over-explanation rather than inaccuracy.
 
-This is the practical failure mode we would emphasize in a defense: critique can
-push an already-good answer toward methodological completeness even when the
-audience needs a sharper answer.
+We conclude that iterative critique can drive an already-adequate answer toward methodological completeness even when the question calls for concision.
 
-There is also an evaluator caveat here. The `loop_n` Q6 answer answered the main
-question and cited real data, but the Haiku evaluator appeared to reward close
-alignment with the concise reference framing and penalize extra nuance. Our
-rubric says a 10 can exceed the reference in depth, but in practice the judge
-sometimes treated "different emphasis" as a completeness or clarity problem. We
-therefore read Q6 as both an agent-design failure mode and an evaluator-design
-warning: single-model LLM judging can be overly sensitive to reference wording,
-specific benchmark figures, and answer length.
+There is also an evaluator consideration. The `loop_n` Q6 answer addressed the main question and cited accurate data, yet the Haiku judge appeared to reward close adherence to the concise reference framing and to penalize the additional nuance. Although our rubric permits a score of 10 to exceed the reference in depth, in practice the judge sometimes treated differences in emphasis as clarity or completeness deficiencies. We therefore interpret Q6 in two ways simultaneously: as an agent-design failure mode and as a caution regarding evaluator design. A single-model LLM judge can be unduly sensitive to reference wording, specific benchmark figures, and answer length.
 
 ## Cost And Practicality
 
-The final full run cost estimate was $20.44 total:
+The final full run cost an estimated $20.44 in total:
 
 | Mode | Total Cost | Approx Cost Per Question |
 |---|---:|---:|
@@ -153,70 +118,67 @@ The final full run cost estimate was $20.44 total:
 | `loop_1` | $6.45 | $1.08 |
 | `loop_n` | $11.04 | $1.84 |
 
-The economics are mixed. `loop_n` produced the best average result, but the
-score gain was small. It is most defensible on questions where definitions are
-ambiguous and extra checking changes the answer quality, such as Q5. It is less
-defensible on already-clean timing questions, such as Q6.
+The cost-benefit tradeoff is unfavorable in aggregate. `loop_n` produced the highest mean score, but the improvement was small and the cost was substantial. The configuration is most justifiable on questions with ambiguous definitions, where an additional round of verification materially improves answer quality, as in Q5. On questions with an already-precise answer, such as the timing question in Q6, it is considerably harder to justify.
 
 ## Limitations
 
-- **n = 6.** This is a proof-of-concept, not a statistical benchmark.
-- **LLM judge subjectivity.** Scores come from one evaluator prompt and one
-  Haiku model. The Q6 result suggests the judge sometimes penalizes valid nuance
-  or alternative emphasis when it does not mirror the reference answer's exact
-  framing. This makes the reported averages useful directionally, but not a
+The principal limitations:
+
+- **n = 6.** This is a proof-of-concept, not a statistically powered benchmark.
+- **LLM judge subjectivity.** Scores derive from a single evaluator prompt and a
+  single Haiku model. The Q6 result indicates that the judge sometimes penalizes
+  valid nuance or alternative emphasis that does not mirror the reference answer's
+  exact framing. The reported averages are therefore directionally useful but not a
   definitive human-quality ranking.
-- **Reference sensitivity.** We found and corrected several reference values, which
-  shows why the verification step matters.
-- **Cost sensitivity.** Model pricing and latency change the practicality of loops.
-- **Memory scope.** Memory is shared across benchmark questions; that may help for
-  related macro concepts and hurt when questions are only loosely related.
+- **Reference sensitivity.** We identified and corrected several reference values,
+  which demonstrates the necessity of the verification step.
+- **Cost sensitivity.** Model pricing and latency materially affect the
+  practicality of the looped configurations.
+- **Memory scope.** Memory is shared across benchmark questions, which may benefit
+  related macroeconomic concepts and degrade performance when questions are only
+  loosely related.
 - **Structured-output leakage.** Two final answers leaked XML-like field labels into
-  the `claim` field. We normalized those artifacts for reporting and added a repair
-  step to the benchmark runner.
+  the `claim` field. These artifacts were normalized for reporting, and a repair
+  step was added to the benchmark runner.
 
 ## What We Would Change Next
 
-- Add a cheap scope-guard judge after critic feedback, rather than relying only on
-  prompt instructions.
-- Score every iteration so we can see where answer quality peaks before later
-  critiques add noise.
+- Add a low-cost scope-guard judge after critic feedback, rather than relying on
+  prompt instructions alone.
+- Score every iteration to identify where answer quality peaks before later
+  critiques introduce noise.
 - Separate factual memory from process memory.
-- Replace the single Haiku judge with an evaluator ensemble: multiple models
-  and/or rubric variants, summarized with a median or trimmed mean plus score
-  variance.
-- Tune the evaluator prompt against direct human feedback. In particular, add
-  calibration examples where valid above-reference nuance should be rewarded,
-  and examples where extra detail should be penalized only when it changes the
-  question or obscures the answer.
-- Add a small human-grading pass for the six final answers and compare human
-  scores to the LLM ensemble.
-- Try a second domain to test whether this pattern generalizes beyond FRED macro
-  questions.
+- Replace the single Haiku judge with an evaluator ensemble spanning multiple
+  models and/or rubric variants, summarized via a median or trimmed mean together
+  with score variance.
+- Calibrate the evaluator prompt against direct human feedback, including examples
+  in which valid above-reference nuance is rewarded and examples in which
+  additional detail is penalized only when it changes the question or obscures the
+  answer.
+- Add a human-grading pass over the six final answers and compare it against the
+  LLM ensemble.
+- Extend the evaluation to a second domain to assess whether these findings
+  generalize beyond FRED macroeconomic questions.
 
 ## What The AI Tool Would Not Have Produced On Its Own
 
-- The benchmark question design: six FRED questions chosen to require reasoning,
-  not recall.
-- The primary-data reference audit and corrections.
+- The benchmark design: six FRED questions selected to require reasoning rather
+  than recall.
+- The primary-data reference audit and the resulting corrections.
 - The decision to report a small, cost-qualified improvement rather than a broad
-  "loops solve research" claim.
-- The Q6 failure interpretation: the loop hurt by overcomplicating a clean answer,
-  not by making a simple factual error.
+  claim that iterative loops resolve research tasks.
+- The interpretation of Q6: the loop degraded the answer by overcomplicating a
+  concise result, not by committing a factual error.
 
 ## AI Usage Statement
 
-Claude Code was used as a development assistant to scaffold and revise code,
-tests, documentation, and report language. The research agent used Anthropic
-models through the API:
+Claude Code served as a development assistant, scaffolding and revising code, tests, documentation, and report language. The research agent ran on Anthropic models through the API:
 
 - Researcher: `claude-opus-4-7`
 - Critic: `claude-sonnet-4-6`
 - Evaluator: `claude-haiku-4-5-20251001`
 
-Benchmark reference answers were hand-curated and then re-verified against
-primary FRED series in `reports/reference_answer_verification.md`. Agent outputs
-were not used as ground-truth reference answers.
+Benchmark reference answers were hand-curated and subsequently re-verified against primary FRED series in `reports/reference_answer_verification.md`. Agent outputs were not used as ground-truth reference answers.
 
 ## Reproducibility
 
@@ -231,3 +193,9 @@ python -m scripts.build_charts
 ```
 
 Final artifacts are consolidated under `outputs/benchmark_runs/consolidated/`.
+
+## References
+
+- Self-Refine (Madaan et al., NeurIPS 2023) - iterative LLM refinement with self-feedback. [arXiv:2303.17651](https://arxiv.org/abs/2303.17651)
+- Reflexion (Shinn et al., NeurIPS 2023) - verbal reinforcement via episodic memory. [arXiv:2303.11366](https://arxiv.org/abs/2303.11366)
+- Macroeconomic Forecasting with LLMs - FRED-MD benchmark context. [arXiv:2407.00890](https://arxiv.org/abs/2407.00890)
