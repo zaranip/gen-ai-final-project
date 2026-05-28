@@ -24,6 +24,10 @@ Delete sections or checks as they become true.
 - [x] Researcher and critic prompts now include scope-discipline instructions to
   reduce historical-window drift.
 - [x] Post-scope-fix Q1 smoke run completed locally as `smoke_20260528_0321`.
+- [x] Clean full benchmark completed as `final_20260528_0340`.
+- [x] Consolidated outputs and charts regenerated from the clean full run.
+- [x] Final report and GitHub Pages chartbook reconciled to the clean full run.
+- [ ] Push the local submission branch after teammate grants write permission.
 
 ---
 
@@ -62,19 +66,19 @@ Wait until `ANTHROPIC_API_KEY` and `FRED_API_KEY` are ready in `.env`.
   ```
 - [x] Inspect `outputs/benchmark_runs/<run_id>/summary.md` for obvious failures,
   malformed claims, missing scores, bad costs, or scope drift.
-- [ ] If the smoke output is sound, run the full final benchmark:
+- [x] If the smoke output is sound, run the full final benchmark:
   ```bash
   python -m scripts.run_benchmark \
     --modes no_loop loop_1 loop_n \
-    --max-iterations 4
+    --max-iterations 4 \
+    --run-id final_20260528_0340
   ```
-- [ ] Use the newest full-run `outputs/benchmark_runs/<run_id>/` as the final source
+- [x] Use the newest full-run `outputs/benchmark_runs/<run_id>/` as the final source
   of truth for scores, costs, iterations, answer excerpts, and failure cases.
-- [ ] Ignore the interrupted `final_20260528_0325` attempt for final reporting; it
+- [x] Ignore the interrupted `final_20260528_0325` attempt for final reporting; it
   was intentionally stopped before writing complete benchmark artifacts.
-- [ ] Do not rely on the current `outputs/benchmark_runs/consolidated/` directory as
-  final until it is reconciled or replaced; it appears to be assembled from partial
-  logs and is missing `Q3`/`loop_n` in `summary.md`.
+- [x] Replaced `outputs/benchmark_runs/consolidated/` with artifacts regenerated
+  from `final_20260528_0340`.
 
 ---
 
@@ -82,16 +86,16 @@ Wait until `ANTHROPIC_API_KEY` and `FRED_API_KEY` are ready in `.env`.
 **Owner:** ___
 **Depends on:** Tasks 1 and 2
 
-- [ ] Replace or regenerate the consolidated results from the clean full run.
-- [ ] Rebuild charts from the final `summary.csv`.
-- [ ] Reconcile the current inconsistency: `reports/final_report.md` says the `Q3`
+- [x] Replace or regenerate the consolidated results from the clean full run.
+- [x] Rebuild charts from the final `summary.csv`.
+- [x] Reconcile the current inconsistency: `reports/final_report.md` says the `Q3`
   `loop_n` cell is missing, while `docs/index.md` presents a filled `Q3` `loop_n`
   score.
-- [ ] Update `reports/final_report.md` with the final mode averages, per-question
+- [x] Update `reports/final_report.md` with the final mode averages, per-question
   scores, costs, run ID, and limitations.
-- [ ] Update `docs/index.md` and chart images so the audience-facing page matches
+- [x] Update `docs/index.md` and chart images so the audience-facing page matches
   the final report and benchmark artifacts.
-- [ ] Confirm the required failure case is supported by `raw_results.json`, not just
+- [x] Confirm the required failure case is supported by `raw_results.json`, not just
   by the summary table.
 
 ---
@@ -104,10 +108,11 @@ Wait until `ANTHROPIC_API_KEY` and `FRED_API_KEY` are ready in `.env`.
   defense artifact.
 - [ ] Ensure GitHub Pages is enabled for the `docs/` directory and the public link
   resolves.
-- [ ] Update README reproduction steps if the final workflow changes.
-- [ ] Fill in actual benchmark cost numbers from the clean run.
-- [ ] Finalize the AI usage statement with the actual tools/models used in the
+- [x] Update README reproduction steps if the final workflow changes.
+- [x] Fill in actual benchmark cost numbers from the clean run.
+- [x] Finalize the AI usage statement with the actual tools/models used in the
   final run and writeup.
+- [ ] Push `codex-submission-handoff` once write permission is granted.
 - [ ] Double-check all group members are on the submission email.
 
 ---
@@ -123,5 +128,5 @@ Wait until `ANTHROPIC_API_KEY` and `FRED_API_KEY` are ready in `.env`.
 - [ ] Add a small human-grading pass for the six final answers to sanity-check the
   LLM judge.
 - [ ] Add CI for `python -m unittest discover -v` and `python -m compileall src benchmark scripts tests`.
-- [ ] Try a non-macro or non-FRED mini-benchmark to see whether the negative
-  `loop_n` result generalizes.
+- [ ] Try a non-macro or non-FRED mini-benchmark to see whether the small,
+  cost-qualified `loop_n` improvement generalizes.
