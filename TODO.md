@@ -27,7 +27,7 @@ Delete sections or checks as they become true.
 - [x] Clean full benchmark completed as `final_20260528_0340`.
 - [x] Consolidated outputs and charts regenerated from the clean full run.
 - [x] Final report and GitHub Pages chartbook reconciled to the clean full run.
-- [ ] Push the local submission branch after teammate grants write permission.
+- [x] Push the local submission branch after teammate grants write permission.
 
 ---
 
@@ -103,16 +103,15 @@ Wait until `ANTHROPIC_API_KEY` and `FRED_API_KEY` are ready in `.env`.
 ## 4 - Submission Packaging
 **Owner:** Zara / ___
 
-- [ ] Decide whether `reports/final_report.md` satisfies the "primary notebook or
-  report file" requirement, or create `notebook.ipynb` if the team wants a notebook
-  defense artifact.
+- [x] Use `reports/final_report.md` as the primary report/submission artifact.
 - [ ] Ensure GitHub Pages is enabled for the `docs/` directory and the public link
   resolves.
 - [x] Update README reproduction steps if the final workflow changes.
 - [x] Fill in actual benchmark cost numbers from the clean run.
 - [x] Finalize the AI usage statement with the actual tools/models used in the
   final run and writeup.
-- [ ] Push `codex-submission-handoff` once write permission is granted.
+- [ ] Complete the final human read-through in `reports/final_human_review.md`.
+- [x] Push `codex-submission-handoff` once write permission is granted.
 - [ ] Double-check all group members are on the submission email.
 
 ---

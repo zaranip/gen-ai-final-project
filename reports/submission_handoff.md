@@ -69,17 +69,13 @@ The interrupted `final_20260528_0325` run should not be used for reporting.
 
 - GitHub Pages still needs to be enabled or confirmed for the `docs/` directory
   after the branch is pushed/merged.
-- The team still needs to decide whether `reports/final_report.md` is the primary
-  submission artifact or whether to add a notebook wrapper.
-- Someone should do a final human read-through of the six consolidated claims and
-  the final report before submission.
+- `reports/final_report.md` is the chosen primary submission artifact.
+- Someone should complete the final human read-through checklist in
+  `reports/final_human_review.md` before submission.
 
 ## Recommended Next Steps
 
-1. After write access is granted, push:
-   ```bash
-   git push -u origin codex-submission-handoff
-   ```
-2. Open a PR or merge the branch into the submission branch.
+1. Complete `reports/final_human_review.md`.
+2. Open a PR or merge `codex-submission-handoff` into the submission branch.
 3. Confirm the GitHub Pages URL renders `docs/index.md` and chart images.
 4. Submit the repo link, report/chartbook link, and any required email materials.
